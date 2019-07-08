@@ -84,15 +84,23 @@ export default {
     LogoWithText() { return LogoWithText }
   },
   methods: {
+    /**
+     * Switch between Sign Up and Sign In panels.
+     * new_panel [String]
+     */
     changePanel(new_panel) {
       this.current_panel = new_panel;
     },
+    /**
+     * Dispatch a store action to try to login, if successful, redirects to the dashboard. If not, displays an error.
+     */
     tryLogIn() {
       let app = this;
       app.processing_signin = true;
       app.$store.dispatch("tryLogin", {email:app.signin.email, password:app.signin.password})
         .then(function(result) {
           app.processing_signin = false;
+          app.$router.push({ path: 'dashboard' })
         }, function(err) {
           app.processing_signin = false;
           app.signing_error = err;

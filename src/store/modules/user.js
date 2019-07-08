@@ -13,14 +13,15 @@ const actions = {
     return new Promise((resolve, reject) => {
       // The login logic should go there, as this is just a homework, I will fake the HTTP request delay with a timeout for realistic purposes.
       setTimeout(function() {
-        let md5 = require('md5');
-        // Fake API answer, returning the user.
-        let api_answer = {
-          _id: 267,
-          username: 'Murakami Haruki'
-        }
         // Demo code follows, simply returning a user as long as the provided email was haruki@murakami.com
         if(params.email == 'haruki@murakami.com') {
+          // Fake API answer, returning the user.
+          let api_answer = {
+            _id: 267,
+            first_name: 'Haruki',
+            last_name: 'Murakami',
+            email: 'haruki@murakami.com'
+          }
           // Updating the store
           commit('updateUser', api_answer);
           // Creating a session
@@ -32,12 +33,14 @@ const actions = {
       }, 600);
     })
   },
+  // Would be used when detecting a session. But not this time as it's a demo.
   forceLogin({commit, state}, user) {
     commit('updateUser', user);
   },
   logOut({commit, state}) {
     commit('updateUser', false);
-    sessionStorage.setItem('session_user', false);
+    // Destroying the session
+    // sessionStorage.setItem('session_user', false);
   }
 }
 

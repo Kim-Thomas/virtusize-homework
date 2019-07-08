@@ -31,6 +31,10 @@ export default {
     focused: {
       type: Boolean,
       default: false
+    },
+    validity: {
+      type: String,
+      default: 'neither-valid-nor-invalid'
     }
   },
   data: function() {
@@ -50,7 +54,10 @@ export default {
         classes += 'inline ';
       }
       if(app.size) {
-        classes += app.size;
+        classes += app.size + ' ';
+      }
+      if(app.validity != 'neither-valid-nor-invalid') {
+        classes += app.validity + ' ';
       }
       return classes;
     }
@@ -100,18 +107,6 @@ export default {
     display: inline-block;
   }
 
-  &.focused {
-    border-left: 4px solid #16C6B9;
-    transition: .3s;
-
-    label {
-      top: 10px;
-      font-size: 12px;
-      opacity: .6;
-      transition: .3s;
-    }
-  }
-
   label {
     font-size: 16px;
     position: absolute;
@@ -136,10 +131,30 @@ export default {
 
   &.medium {
 
+    label {
+      top: 20px;
+    }
+
     input {
       padding: 10px 15px;
       padding-top: 30px;
     }
+  }
+
+  &.focused {
+    border-left: 4px solid #16C6B9;
+    transition: .3s;
+
+    label {
+      top: 10px;
+      font-size: 12px;
+      opacity: .6;
+      transition: .3s;
+    }
+  }
+
+  &.invalid {
+    border-left: 4px solid #e74c3c;
   }
 }
 </style>

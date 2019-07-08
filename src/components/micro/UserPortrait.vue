@@ -18,7 +18,7 @@ export default {
   data: function() {
     return {
       isUsingDefault: false,
-      portrait: encodeURI('https://res-2.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco/v1461215115/typtmcfflkmdi7v9kduo.png')
+      portrait: encodeURI('https://hitberry.com//uploads/2018/04/15/haruki-murakami-1523791076.jpg')
     }
   },
   computed: {
@@ -41,12 +41,12 @@ export default {
         let md5_email = md5(email);
         let gravatar_base_url = "https://www.gravatar.com/avatar/"
         let size = "?s=200"
-        let default_image = "&d=" + encodeURI('https://res-2.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco/v1461215115/typtmcfflkmdi7v9kduo.png')
+        let default_image = "&d=" + encodeURI('https://hitberry.com//uploads/2018/04/15/haruki-murakami-1523791076.jpg')
         app.portrait = gravatar_base_url + md5_email + size + default_image;
         app.isUsingDefault = false;
       } else {
         if(!app.isUsingDefault) {
-          app.portrait = encodeURI('https://res-2.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco/v1461215115/typtmcfflkmdi7v9kduo.png');
+          app.portrait = encodeURI('https://hitberry.com//uploads/2018/04/15/haruki-murakami-1523791076.jpg');
           app.isUsingDefault = true;
         }
       }
@@ -60,13 +60,13 @@ export default {
       let md5_email = md5(email);
       let gravatar_base_url = "https://www.gravatar.com/avatar/"
       let size = "?s=200"
-      let default_image = "&d=" + encodeURI('https://res-2.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco/v1461215115/typtmcfflkmdi7v9kduo.png')
+      let default_image = "&d=" + encodeURI('https://hitberry.com//uploads/2018/04/15/haruki-murakami-1523791076.jpg')
       app.portrait = gravatar_base_url + md5_email + size + default_image;
       console.log(app.portrait);
       app.isUsingDefault = false;
     } else {
       if(!app.isUsingDefault) {
-        app.portrait = encodeURI('https://res-2.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco/v1461215115/typtmcfflkmdi7v9kduo.png');
+        app.portrait = encodeURI('https://hitberry.com//uploads/2018/04/15/haruki-murakami-1523791076.jpg');
         app.isUsingDefault = true;
       }
     }

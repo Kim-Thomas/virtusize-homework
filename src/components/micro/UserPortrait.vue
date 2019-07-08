@@ -7,6 +7,7 @@
 import { setTimeout } from 'timers';
 
 let md5 = require('md5');
+let default_image_url = 'https://hitberry.com//uploads/2018/04/15/haruki-murakami-1523791076.jpg';
 
 export default {
   props: {
@@ -18,7 +19,7 @@ export default {
   data: function() {
     return {
       isUsingDefault: false,
-      portrait: encodeURI('https://hitberry.com//uploads/2018/04/15/haruki-murakami-1523791076.jpg')
+      portrait: encodeURI(default_image_url)
     }
   },
   computed: {
@@ -41,12 +42,12 @@ export default {
         let md5_email = md5(email);
         let gravatar_base_url = "https://www.gravatar.com/avatar/"
         let size = "?s=200"
-        let default_image = "&d=" + encodeURI('https://hitberry.com//uploads/2018/04/15/haruki-murakami-1523791076.jpg')
+        let default_image = "&d=" + encodeURI(default_image_url)
         app.portrait = gravatar_base_url + md5_email + size + default_image;
         app.isUsingDefault = false;
       } else {
         if(!app.isUsingDefault) {
-          app.portrait = encodeURI('https://hitberry.com//uploads/2018/04/15/haruki-murakami-1523791076.jpg');
+          app.portrait = encodeURI(default_image_url);
           app.isUsingDefault = true;
         }
       }
@@ -60,13 +61,13 @@ export default {
       let md5_email = md5(email);
       let gravatar_base_url = "https://www.gravatar.com/avatar/"
       let size = "?s=200"
-      let default_image = "&d=" + encodeURI('https://hitberry.com//uploads/2018/04/15/haruki-murakami-1523791076.jpg')
+      let default_image = "&d=" + encodeURI(default_image_url)
       app.portrait = gravatar_base_url + md5_email + size + default_image;
       console.log(app.portrait);
       app.isUsingDefault = false;
     } else {
       if(!app.isUsingDefault) {
-        app.portrait = encodeURI('https://hitberry.com//uploads/2018/04/15/haruki-murakami-1523791076.jpg');
+        app.portrait = encodeURI(default_image_url);
         app.isUsingDefault = true;
       }
     }

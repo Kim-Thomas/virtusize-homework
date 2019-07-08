@@ -1,5 +1,5 @@
 <template>
-  <div class="big-input-group" :class="groupClasses">
+  <div class="virtusize-input-group" :class="groupClasses">
     <label :for="uniqueId">{{label}}</label>
     <input :id="uniqueId" :type="type" :value="value" v-on:keyup="updateInputVal($event.target.value)">
   </div>
@@ -19,6 +19,10 @@ export default {
     label: {
       type: String,
       default: 'Undefined Label'
+    },
+    size: {
+      type: String,
+      default: 'big'
     },
     inline: {
       type: Boolean,
@@ -44,6 +48,9 @@ export default {
       }
       if(app.inline) {
         classes += 'inline ';
+      }
+      if(app.size) {
+        classes += app.size;
       }
       return classes;
     }
@@ -72,11 +79,11 @@ export default {
     let app = this;
 
     $('#'+app.uniqueId).on('focus', function() {
-      $(this).parent('.big-input-group').addClass('focused');
+      $(this).parent('.virtusize-input-group').addClass('focused');
     });
     $('#'+app.uniqueId).on('focusout', function() {
       if($(this).val().length == 0) {
-        $(this).parent('.big-input-group').removeClass('focused');
+        $(this).parent('.virtusize-input-group').removeClass('focused');
       }
     });
   }
@@ -84,7 +91,7 @@ export default {
 </script>
 
 <style lang="less">
-.big-input-group {
+.virtusize-input-group {
   position: relative;
   box-shadow: 0 0 1px #16C6B9;
   border-left: 4px solid rgba(255, 255, 255, 1);
@@ -125,6 +132,14 @@ export default {
     //color: #24C6DC;
     border: none;
     outline: none;
+  }
+
+  &.medium {
+
+    input {
+      padding: 10px 15px;
+      padding-top: 30px;
+    }
   }
 }
 </style>

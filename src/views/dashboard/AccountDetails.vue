@@ -9,12 +9,12 @@
           <div class="data">
             {{userFullname}}
           </div>
-          <font-awesome-icon icon="pen" />
+          <font-awesome-icon icon="pen" v-on:click="toggleEditingMode('editing_fullname')"/>
         </div>
-        <div class="edition-area">
-          <BigInput label="First Name" v-model="user.first_name" :inline="true" :focused="true"/>
+        <div class="edition-area" v-if="editing_fullname">
+          <VirtusizeInput label="First Name" size="medium" v-model="user.first_name" :inline="true" :focused="true"/>
           &nbsp;
-          <BigInput label="Last Name" v-model="user.last_name" :inline="true" :focused="true"/>
+          <VirtusizeInput label="Last Name" size="medium" v-model="user.last_name" :inline="true" :focused="true"/>
         </div>
       </div>
       <div class="user-email">
@@ -22,7 +22,10 @@
           <div class="data">
             {{user.email}}
           </div>
-          <font-awesome-icon icon="pen" />
+          <font-awesome-icon icon="pen" v-on:click="toggleEditingMode('editing_email')"/>
+        </div>
+        <div class="edition-area" v-if="editing_email">
+          <VirtusizeInput label="Email Address" size="medium" v-model="user.email" :focused="true"/>
         </div>
       </div>
     </div>
@@ -30,16 +33,18 @@
 </template>
 
 <script>
-import BigInput from '@/components/micro/BigInput.vue';
+import VirtusizeInput from '@/components/micro/VirtusizeInput.vue';
 
 export default {
   components: {
-    BigInput
+    VirtusizeInput
   },
   data: function() {
     return {
       saveable: false,
-      user: JSON.parse(JSON.stringify(this.$store.state.user.user))
+      user: JSON.parse(JSON.stringify(this.$store.state.user.user)),
+      editing_fullname: false,
+      editing_email: false
     }
   },
   computed: {
@@ -54,6 +59,11 @@ export default {
         this.$store.commit('updateUser', new_user);
       },
       deep: true
+    }
+  },
+  methods: {
+    toggleEditingMode(editing_data) {
+      this[editing_data] = !this[editing_data];
     }
   }
 }
@@ -91,7 +101,7 @@ export default {
 
   .container {
     width: 90%;
-    max-width: 660px;
+    max-width: 560px;
     margin: auto;
 
     .editable-data {
@@ -127,7 +137,16 @@ export default {
     .user-email {
       text-align: center;
       margin-top: 20px;
-      opacity: .6;
+      
+      .editable-data {
+        .data {
+          opacity: .6;
+        }
+      }
+
+      .edition-area {
+        margin-top: 20px;
+      }
     }
   }
 }

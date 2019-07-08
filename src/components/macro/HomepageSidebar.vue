@@ -16,8 +16,8 @@
           <div class="processing-form-overlay" v-if="processing_signin">
             <div class="lds-dual-ring"></div>
           </div>
-          <BigInput label="Email Address" v-model="signin.email"/>
-          <BigInput label="Password" type="password" v-model="signin.password"/>
+          <VirtusizeInput label="Email Address" v-model="signin.email"/>
+          <VirtusizeInput label="Password" type="password" v-model="signin.password"/>
         </form>
         <input type="checkbox" name="vehicle1" value="Bike" id="remember-me"> 
         <label for="remember-me" class="checkbox-label">Remember Me</label>
@@ -34,9 +34,9 @@
         <h2 class="tagline">Online Clothes Shopping Made Easy</h2>
         <div class="form-label">Thank you for your interest in Virtusize, please create an account to continue.</div>
         <form class="signup-form">
-          <BigInput label="Email Address" v-model="signup.email"/>
-          <BigInput label="Password" type="password" v-model="signup.password"/>
-          <BigInput label="Password" type="password" v-model="signup.password_b"/>
+          <VirtusizeInput label="Email Address" v-model="signup.email"/>
+          <VirtusizeInput label="Password" type="password" v-model="signup.password"/>
+          <VirtusizeInput label="Password" type="password" v-model="signup.password_b"/>
         </form>
         <div class="actions">
           <VirtusizeBtn btn-class="btn btn--big" label="Sign up"/>
@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import BigInput from '@/components/micro/BigInput.vue';
+import VirtusizeInput from '@/components/micro/VirtusizeInput.vue';
 import VirtusizeBtn from '@/components/micro/VirtusizeButton.vue';
 
 import LogoWithText from '@/assets/brand/logo-w-text.svg';
@@ -61,7 +61,7 @@ import { setTimeout } from 'timers';
 
 export default {
   components: {
-    BigInput,
+    VirtusizeInput,
     VirtusizeBtn
   },
   data: function() {

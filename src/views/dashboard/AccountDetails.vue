@@ -42,9 +42,13 @@
       </div>
 
       <div class="change-password-container">
-        <VirtusizeInput label="Current Password" type="password" size="medium" v-model="current_password" :inline="true"/>
-        <VirtusizeInput label="New Password" type="password" size="medium" v-model="new_password" :inline="true" :password-strength="true"/>
+        <div class="edition-area">
+          <VirtusizeInput label="Current Password" type="password" size="medium" v-model="current_password" :inline="true"/>
+          <VirtusizeInput label="New Password" type="password" size="medium" v-model="new_password" :inline="true" :password-strength="true" :strength="newPasswordStrength"/>
+        </div>
+        <VirtusizeBtn btn-class="btn btn--big" label="Change Password" v-on:click.native="saveUser()" v-if="passwordIsChangeable"/>
       </div>
+      
     </div>
   </div>
 </template>
@@ -53,6 +57,8 @@
 import VirtusizeInput from '@/components/micro/VirtusizeInput.vue';
 import VirtusizeBtn from '@/components/micro/VirtusizeButton.vue';
 import UserPortrait from '@/components/micro/UserPortrait.vue';
+
+let zxcvbn = require('zxcvbn'); 
 
 export default {
   components: {
@@ -101,6 +107,17 @@ export default {
     },
     saveable() {
       if(this.edited && this.emailIsValid == 'valid' && this.firstNameIsValid == 'valid' && this.lastNameIsValid == 'valid') {
+        return true;
+      }
+      return false;
+    },
+    newPasswordStrength() {
+      let val = this.new_password;
+      let result = zxcvbn(val);
+      return result.score;
+    },
+    passwordIsChangeable() {
+      if(this.current_password.length > 0 && this.newPasswordStrength >= 3) {
         return true;
       }
       return false;
@@ -233,7 +250,11 @@ export default {
     }
 
     .change-password-container {
-      display: flex;
+
+      .edition-area {
+        display: flex;
+        margin-bottom: 40px;
+      }
     }
   }
 }

@@ -1,6 +1,9 @@
 <template>
   <div class="virtusize-input-group" :class="groupClasses">
     <label :for="uniqueId">{{label}}</label>
+    <div class="toggle-password-visibility" v-if="type == 'password'" v-on:click="togglePasswordVisibility($event)">
+      Show Password
+    </div>
     <input :id="uniqueId" :type="type" :value="value" v-on:keyup="updateInputVal($event.target.value)">
     <PasswordStrengthMeter v-if="passwordStrength" :strength="strength"/>
   </div>
@@ -44,6 +47,10 @@ export default {
     passwordStrength: {
       type: Boolean,
       default: false
+    },
+    strength: {
+      type: Number,
+      default: 0
     }
   },
   components: {
@@ -72,11 +79,6 @@ export default {
         classes += app.validity + ' ';
       }
       return classes;
-    },
-    strength() {
-      let val = this.value;
-      let result = zxcvbn(val);
-      return result.score;
     }
   },
   methods: {
@@ -94,6 +96,19 @@ export default {
         text += possible.charAt(Math.floor(Math.random() * possible.length));
 
       return text;
+    },
+    togglePasswordVisibility(e) {
+      let app = this;
+      $('#'+app.uniqueId).focus();
+      let current_type = $('#'+app.uniqueId).attr('type');
+      if(current_type == 'password') {
+        $('#'+app.uniqueId).attr('type', 'text');
+        $(e.target).html('Hide Password')
+      }
+      if(current_type == 'text') {
+        $('#'+app.uniqueId).attr('type', 'password');
+        $(e.target).html('Show Password')
+      }
     }
   },
   created: function() {
@@ -156,6 +171,17 @@ export default {
     outline: none;
   }
 
+  .toggle-password-visibility {
+    position: absolute;
+    left: 0;
+    top: -23px;
+    width: 100%;
+    text-align: right;
+    font-size: .8em;
+    opacity: 0;
+    cursor: pointer;
+  }
+
   .password-strength-meter {
     position: absolute;
     left: 0;
@@ -188,6 +214,10 @@ export default {
     }
 
     .password-strength-meter {
+      opacity: 1;
+    }
+
+    .toggle-password-visibility {
       opacity: 1;
     }
   }

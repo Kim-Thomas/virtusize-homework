@@ -106,6 +106,9 @@ export default {
     saveUser() {
       // Here we should save the User, but as this is just the demo, I'll simply set edited to false.
       this.edited = false;
+      // But also close all edition area
+      this.editing_fullname = false;
+      this.editing_email = false;
     }
   }
 }

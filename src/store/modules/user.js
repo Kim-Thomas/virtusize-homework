@@ -1,10 +1,10 @@
 const state = {
-  user: false,
+  user: {},
 }
 
 const mutations = {
   updateUser (state,data) {
-    state.user = data;
+    Object.assign(state.user, data);
   }
 }
 

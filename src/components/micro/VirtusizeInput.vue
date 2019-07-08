@@ -2,7 +2,9 @@
   <div class="virtusize-input-group" :class="groupClasses">
     <label :for="uniqueId">{{label}}</label>
     <div class="toggle-password-visibility" v-if="type == 'password'" v-on:click="togglePasswordVisibility($event)">
-      Show Password
+      <font-awesome-icon icon="eye" class="show-password-icon"/>
+      <font-awesome-icon icon="eye-slash" class="hide-password-icon" style="display: none"/>
+      <span>Show</span>
     </div>
     <input :id="uniqueId" :type="type" :value="value" v-on:keyup="updateInputVal($event.target.value)">
     <PasswordStrengthMeter v-if="passwordStrength" :strength="strength"/>
@@ -103,11 +105,15 @@ export default {
       let current_type = $('#'+app.uniqueId).attr('type');
       if(current_type == 'password') {
         $('#'+app.uniqueId).attr('type', 'text');
-        $(e.target).html('Hide Password')
+        $('#'+app.uniqueId).parent('.virtusize-input-group').find('.show-password-icon').hide();
+        $('#'+app.uniqueId).parent('.virtusize-input-group').find('.hide-password-icon').show();
+        $('#'+app.uniqueId).parent('.virtusize-input-group').find('.toggle-password-visibility span').html('Hide');
       }
       if(current_type == 'text') {
         $('#'+app.uniqueId).attr('type', 'password');
-        $(e.target).html('Show Password')
+        $('#'+app.uniqueId).parent('.virtusize-input-group').find('.show-password-icon').show();
+        $('#'+app.uniqueId).parent('.virtusize-input-group').find('.hide-password-icon').hide();
+        $('#'+app.uniqueId).parent('.virtusize-input-group').find('.toggle-password-visibility span').html('Show');
       }
     }
   },
@@ -173,13 +179,15 @@ export default {
 
   .toggle-password-visibility {
     position: absolute;
-    left: 0;
-    top: -23px;
-    width: 100%;
-    text-align: right;
+    right: 5px;
+    top: -22px;
     font-size: .8em;
     opacity: 0;
     cursor: pointer;
+
+    span {
+      margin-left: 5px;
+    }
   }
 
   .password-strength-meter {
@@ -218,7 +226,11 @@ export default {
     }
 
     .toggle-password-visibility {
-      opacity: 1;
+      opacity: .6;
+
+      &:hover {
+        opacity: .8;
+      }
     }
   }
 

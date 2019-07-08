@@ -52,6 +52,9 @@ export default {
     updateInputVal: function(value) {
       this.$emit('input', value);
     },
+    /**
+     * Generate a unique ID
+     */
     makeid: function() {
       var text = "";
       var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -76,13 +79,6 @@ export default {
         $(this).parent('.big-input-group').removeClass('focused');
       }
     });
-  },
-  updated: function() {
-    let app = this;
-    console.log('test')
-    if($('#'+app.uniqueId).val().length > 0) {
-      $(this).parent('.big-input-group').addClass('focused');
-    }    
   }
 }
 </script>

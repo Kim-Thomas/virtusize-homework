@@ -16,15 +16,9 @@ npm run serve
 npm run build
 ```
 
-### Run your tests
+## Login Instructions
+In order to log-in, simply use the following email:
 ```
-npm run test
+haruki@murakami.com
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+...with **any password**.

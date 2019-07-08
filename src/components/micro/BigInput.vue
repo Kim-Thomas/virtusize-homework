@@ -1,5 +1,5 @@
 <template>
-  <div class="big-input-group">
+  <div class="big-input-group" :class="groupClasses">
     <label :for="uniqueId">{{label}}</label>
     <input :id="uniqueId" :type="type" :value="value" v-on:keyup="updateInputVal($event.target.value)">
   </div>
@@ -19,12 +19,33 @@ export default {
     label: {
       type: String,
       default: 'Undefined Label'
+    },
+    inline: {
+      type: Boolean,
+      default: false,
+    },
+    focused: {
+      type: Boolean,
+      default: false
     }
   },
   data: function() {
     return {
       uniqueId: this.makeid(),
       input_val: ''
+    }
+  },
+  computed: {
+    groupClasses() {
+      let app = this;
+      let classes = '';
+      if(app.focused) {
+        classes += 'focused ';
+      }
+      if(app.inline) {
+        classes += 'inline ';
+      }
+      return classes;
     }
   },
   methods: {
@@ -41,8 +62,12 @@ export default {
       return text;
     }
   },
+  created: function() {
+
+  },
   mounted: function() {
     let app = this;
+
     $('#'+app.uniqueId).on('focus', function() {
       $(this).parent('.big-input-group').addClass('focused');
     });
@@ -51,6 +76,13 @@ export default {
         $(this).parent('.big-input-group').removeClass('focused');
       }
     });
+  },
+  updated: function() {
+    let app = this;
+    console.log('test')
+    if($('#'+app.uniqueId).val().length > 0) {
+      $(this).parent('.big-input-group').addClass('focused');
+    }    
   }
 }
 </script>
@@ -60,6 +92,10 @@ export default {
   position: relative;
   box-shadow: 0 0 1px #16C6B9;
   border-left: 4px solid rgba(255, 255, 255, 1);
+
+  &.inline {
+    display: inline-block;
+  }
 
   &.focused {
     border-left: 4px solid #16C6B9;
@@ -74,6 +110,7 @@ export default {
   }
 
   label {
+    font-size: 16px;
     position: absolute;
     font-weight: 600;
     top: 26px;

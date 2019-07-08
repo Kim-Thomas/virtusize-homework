@@ -26,7 +26,7 @@
             </router-link>
           </li>
           <li>
-            <a href="">
+            <a href="" class='log-out-link'>
               <font-awesome-icon icon="sign-out-alt" /> log Out
             </a>
           </li>
@@ -49,7 +49,7 @@ export default {
   created: function() {
     let app = this;
     // Let's check if the user is really loged, if not, redirect to homepage.
-    if(!app.$store.state.user.user) {
+    if(!app.$store.state.user.user._id) {
       app.$router.push({ path: '/' })
     }
   } 
@@ -87,6 +87,8 @@ export default {
       box-sizing: border-box;
 
       .sidebar-title {
+        color: rgb(18, 100, 95);
+        font-weight: 900;
         font-size: .8em;
         margin-top: 20px;
         margin-bottom: 20px;
@@ -101,7 +103,6 @@ export default {
         li {          
           position: relative;
           list-style: none;
-          padding: 15px 0;
 
           a {
             display: block;
@@ -109,7 +110,24 @@ export default {
             color: inherit;
             font-size: 1em;
             font-weight: 600;
+            padding: 15px 0;
             opacity: .6;
+
+            &.log-out-link {
+              color: #e74c3c;
+            }
+
+            &:hover {
+              &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: calc(~'320px - 30px - 4px');
+                height: 100%;
+                width: 4px;
+                background: rgba(22, 198, 186, 0.3);
+              }   
+            }
 
             &.router-link-active {
               opacity: .8;

@@ -4,7 +4,7 @@
       <div class="save-user-btn-container" v-if="saveable">
         <VirtusizeBtn btn-class="btn btn--big" label="Save Modifications" v-on:click.native="saveUser()"/>
       </div>
-      <div class="user-portrait"></div>
+      <UserPortrait :email="user.email"/>
     </div>
     <div class="container">
       <div class="user-fullname">
@@ -38,11 +38,13 @@
 <script>
 import VirtusizeInput from '@/components/micro/VirtusizeInput.vue';
 import VirtusizeBtn from '@/components/micro/VirtusizeButton.vue';
+import UserPortrait from '@/components/micro/UserPortrait.vue';
 
 export default {
   components: {
     VirtusizeInput,
-    VirtusizeBtn
+    VirtusizeBtn,
+    UserPortrait
   },
   data: function() {
     return {

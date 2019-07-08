@@ -34,6 +34,15 @@ export default {
   color: white;
   font-size: 14px;
   border-radius: 3px;
+  margin: 0 10px;
+
+  &:first-of-type {
+    margin-left:0;
+  }
+
+  &:last-of-type {
+    margin-right: 0;
+  }
 
   &--big {
     padding: 15px 35px;

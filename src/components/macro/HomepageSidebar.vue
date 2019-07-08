@@ -23,7 +23,6 @@
         <label for="remember-me" class="checkbox-label">Remember Me</label>
         <div class="actions">
           <VirtusizeBtn btn-class="btn btn--big" label="Log in" v-on:click.native="tryLogIn()"/>
-          &nbsp;&nbsp;&nbsp;
           <VirtusizeBtn btn-class="btn btn--big btn--ghost" label="Sign up" v-on:click.native="changePanel('signup')"/>
         </div>
       </div>
@@ -40,7 +39,6 @@
         </form>
         <div class="actions">
           <VirtusizeBtn btn-class="btn btn--big" label="Sign up"/>
-          &nbsp;&nbsp;&nbsp;
           <VirtusizeBtn btn-class="btn btn--big btn--ghost" label="Log in" v-on:click.native="changePanel('signin')"/>
         </div>
       </div>

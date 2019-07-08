@@ -17,7 +17,6 @@
         </div>
         <div class="edition-area" v-if="editing_fullname">
           <VirtusizeInput label="First Name" size="medium" v-model="user.first_name" :inline="true" :focused="true" :validity="firstNameIsValid"/>
-          &nbsp;
           <VirtusizeInput label="Last Name" size="medium" v-model="user.last_name" :inline="true" :focused="true" :validity="lastNameIsValid"/>
         </div>
       </div>

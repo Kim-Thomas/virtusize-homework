@@ -106,6 +106,15 @@ export default {
   &.inline {
     display: inline-block;
     flex: 1;
+    margin: 0 5px;
+
+    &:first-of-type {
+      margin-left:0;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
   }
 
   label {

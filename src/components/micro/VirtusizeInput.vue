@@ -2,10 +2,15 @@
   <div class="virtusize-input-group" :class="groupClasses">
     <label :for="uniqueId">{{label}}</label>
     <input :id="uniqueId" :type="type" :value="value" v-on:keyup="updateInputVal($event.target.value)">
+    <PasswordStrengthMeter v-if="passwordStrength" :strength="strength"/>
   </div>
 </template>
 
 <script>
+import PasswordStrengthMeter from '@/components/micro/PasswordStrengthMeter.vue'
+
+let zxcvbn = require('zxcvbn');
+
 export default {
   props: {
     value: {
@@ -35,7 +40,14 @@ export default {
     validity: {
       type: String,
       default: 'neither-valid-nor-invalid'
+    },
+    passwordStrength: {
+      type: Boolean,
+      default: false
     }
+  },
+  components: {
+    PasswordStrengthMeter
   },
   data: function() {
     return {
@@ -60,6 +72,11 @@ export default {
         classes += app.validity + ' ';
       }
       return classes;
+    },
+    strength() {
+      let val = this.value;
+      let result = zxcvbn(val);
+      return result.score;
     }
   },
   methods: {
@@ -139,6 +156,14 @@ export default {
     outline: none;
   }
 
+  .password-strength-meter {
+    position: absolute;
+    left: 0;
+    top: 70px;
+    width: 100%;
+    opacity: 0;
+  }
+
   &.medium {
 
     label {
@@ -160,6 +185,10 @@ export default {
       font-size: 12px;
       opacity: .6;
       transition: .3s;
+    }
+
+    .password-strength-meter {
+      opacity: 1;
     }
   }
 

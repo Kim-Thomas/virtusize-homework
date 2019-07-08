@@ -1,12 +1,15 @@
 <template>
   <div class="account-details">
+
     <div class="account-hero">
       <div class="save-user-btn-container" v-if="saveable">
         <VirtusizeBtn btn-class="btn btn--big" label="Save Modifications" v-on:click.native="saveUser()"/>
       </div>
       <UserPortrait :email="user.email"/>
     </div>
+
     <div class="container">
+
       <div class="user-fullname">
         <div class="editable-data">
           <div class="data">
@@ -20,6 +23,7 @@
           <VirtusizeInput label="Last Name" size="medium" v-model="user.last_name" :inline="true" :focused="true" :validity="lastNameIsValid"/>
         </div>
       </div>
+
       <div class="user-email">
         <div class="editable-data">
           <div class="data">
@@ -31,6 +35,15 @@
         <div class="edition-area" v-if="editing_email">
           <VirtusizeInput label="Email Address" size="medium" v-model="user.email" :focused="true" :validity="emailIsValid"/>
         </div>
+      </div>
+
+      <div class="section-title">
+        Change Password
+      </div>
+
+      <div class="change-password-container">
+        <VirtusizeInput label="Current Password" type="password" size="medium" v-model="current_password" :inline="true"/>
+        <VirtusizeInput label="New Password" type="password" size="medium" v-model="new_password" :inline="true" :password-strength="true"/>
       </div>
     </div>
   </div>
@@ -52,7 +65,9 @@ export default {
       edited: false,
       user: JSON.parse(JSON.stringify(this.$store.state.user.user)),
       editing_fullname: false,
-      editing_email: false
+      editing_email: false,
+      current_password: '',
+      new_password: ''
     }
   },
   computed: {
@@ -206,6 +221,19 @@ export default {
       .edition-area {
         margin-top: 20px;
       }
+    }
+
+    .section-title {
+      font-size: 1em;
+      font-weight: 900;
+      opacity: .8;
+      margin: 40px 0;
+      text-transform: uppercase;
+      color: #16C6B9;
+    }
+
+    .change-password-container {
+      display: flex;
     }
   }
 }

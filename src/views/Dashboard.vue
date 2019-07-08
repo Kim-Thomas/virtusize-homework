@@ -87,13 +87,13 @@ export default {
       box-sizing: border-box;
 
       .sidebar-title {
-        color: rgb(18, 100, 95);
+        color: #16C6B9;
         font-weight: 900;
         font-size: .8em;
         margin-top: 20px;
         margin-bottom: 20px;
         text-transform: uppercase;
-        opacity: .4;
+        opacity: 1;
       }
 
       ul {

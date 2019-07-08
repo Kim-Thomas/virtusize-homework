@@ -5,16 +5,30 @@
         <img class="site-branding__logo" alt="Virtusize Logo" :src="LogoWithText">
       </div>
       <div class="content">
-        <h3 class="sidebar-title">My Dashboard</h3>
+        <h3 class="sidebar-title">Dashboard</h3>
         <ul>
           <li>
-            <router-link to="/dashboard/account-details">Account Details</router-link>
+            <router-link to="/dashboard/account-details">
+              <font-awesome-icon icon="user-secret" /> Account Details
+            </router-link>
           </li>
           <li>
-            <router-link to="/dashboard/my-wardrobe">My Wardrobe</router-link>
+            <router-link to="/dashboard/my-wardrobe">
+              <font-awesome-icon icon="socks" /> My Wardrobe
+            </router-link>
+          </li>
+        </ul>
+        <h3 class="sidebar-title">Others</h3>
+        <ul>
+          <li>
+            <router-link to="/dashboard/about">
+              <font-awesome-icon icon="question-circle" /> About
+            </router-link>
           </li>
           <li>
-            <router-link to="/dashboard/about">About</router-link>
+            <a href="">
+              <font-awesome-icon icon="sign-out-alt" /> log Out
+            </a>
           </li>
         </ul>
       </div>
@@ -47,7 +61,7 @@ export default {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: 360px 1fr;
+  grid-template-columns: 320px 1fr;
 
   .sidebar {
     border-right: .5px solid rgba(0,0,0,.2);
@@ -68,25 +82,53 @@ export default {
     }
 
     .content {
+      width: 100%;
       padding: 0 30px;
       box-sizing: border-box;
 
       .sidebar-title {
-        margin-top: 0;
-        font-size: 1.5em;
+        font-size: .8em;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        opacity: .4;
       }
 
       ul {
         padding: 0;
         margin: 0;
 
-        li {
+        li {          
+          position: relative;
           list-style: none;
-          margin: 15px 0;
+          padding: 15px 0;
 
           a {
+            display: block;
             text-decoration: none;
             color: inherit;
+            font-size: 1em;
+            font-weight: 600;
+            opacity: .6;
+
+            &.router-link-active {
+              opacity: .8;
+
+              &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: calc(~'320px - 30px - 4px');
+                height: 100%;
+                width: 4px;
+                background: #16C6B9;
+              }
+            }
+
+            svg {
+              width: 20px;
+              margin-right: 10px;
+            }
           }
         }
       }

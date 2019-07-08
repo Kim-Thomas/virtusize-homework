@@ -24,6 +24,7 @@ export default new Router({
       children: [
         {
           path: '',
+          redirect: 'account-details',
           component: DashboardAccountDetails
         },
         {

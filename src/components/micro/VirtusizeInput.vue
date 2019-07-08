@@ -105,6 +105,7 @@ export default {
 
   &.inline {
     display: inline-block;
+    flex: 1;
   }
 
   label {

@@ -10,6 +10,7 @@
       <div class="user-fullname">
         <div class="editable-data">
           <div class="data">
+            <span v-if="userFullname.length == 1">Undefined</span>
             {{userFullname}}
           </div>
           <font-awesome-icon icon="pen" v-on:click="toggleEditingMode('editing_fullname')"/>
@@ -23,6 +24,7 @@
       <div class="user-email">
         <div class="editable-data">
           <div class="data">
+            <span v-if="user.email.length == 0">Undefined</span>
             {{user.email}}
           </div>
           <font-awesome-icon icon="pen" v-on:click="toggleEditingMode('editing_email')"/>
@@ -188,6 +190,7 @@ export default {
 
       .edition-area {
         margin-top: 20px;
+        display: flex;
       }
     }
 

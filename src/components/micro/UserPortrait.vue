@@ -31,9 +31,6 @@ export default {
         return email;
       }
       return false;
-    },
-    gravatarPortraitURL() {
-
     }
   },
   watch: {
@@ -54,6 +51,25 @@ export default {
           app.portrait = encodeURI('https://res-2.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco/v1461215115/typtmcfflkmdi7v9kduo.png');
           app.isUsingDefault = true;
         }
+      }
+    }
+  },
+  mounted: function() {
+    let app = this;
+    let email = app.sanitizedEmail;
+    if(email) {
+      console.log('test')
+      let md5_email = md5(email);
+      let gravatar_base_url = "https://www.gravatar.com/avatar/"
+      let size = "?s=200"
+      let default_image = "&d=" + encodeURI('https://res-2.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco/v1461215115/typtmcfflkmdi7v9kduo.png')
+      app.portrait = gravatar_base_url + md5_email + size + default_image;
+      console.log(app.portrait);
+      app.isUsingDefault = false;
+    } else {
+      if(!app.isUsingDefault) {
+        app.portrait = encodeURI('https://res-2.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco/v1461215115/typtmcfflkmdi7v9kduo.png');
+        app.isUsingDefault = true;
       }
     }
   }

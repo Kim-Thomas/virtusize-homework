@@ -2,7 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Dashboard from './views/Dashboard.vue'
-import About from './views/About.vue'
+  import DashboardAccountDetails from './views/dashboard/AccountDetails.vue'
+  import DashboardWardrobe from './views/dashboard/Wardrobe.vue'
+  import DashboardAbout from './views/dashboard/About.vue'
 
 Vue.use(Router)
 
@@ -18,12 +20,25 @@ export default new Router({
     {
       path: '/dashboard',
       name: 'dashboard',
-      component: Dashboard
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: About
+      component: Dashboard,
+      children: [
+        {
+          path: '',
+          component: DashboardAccountDetails
+        },
+        {
+          path: 'account-details',
+          component: DashboardAccountDetails
+        },
+        {
+          path: 'my-wardrobe',
+          component: DashboardWardrobe
+        },
+        {
+          path: 'about',
+          component: DashboardAbout
+        }
+      ]
     }
   ]
 })

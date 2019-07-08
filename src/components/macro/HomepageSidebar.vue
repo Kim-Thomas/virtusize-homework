@@ -16,15 +16,15 @@
           <div class="processing-form-overlay" v-if="processing_signin">
             <div class="lds-dual-ring"></div>
           </div>
-          <big-input label="Email Address" v-model="signin.email"/>
-          <big-input label="Password" type="password" v-model="signin.password"/>
+          <BigInput label="Email Address" v-model="signin.email"/>
+          <BigInput label="Password" type="password" v-model="signin.password"/>
         </form>
         <input type="checkbox" name="vehicle1" value="Bike" id="remember-me"> 
         <label for="remember-me" class="checkbox-label">Remember Me</label>
         <div class="actions">
-          <virtusize-btn btn-class="btn btn--big" label="Log in" v-on:click.native="tryLogIn()"/>
+          <VirtusizeBtn btn-class="btn btn--big" label="Log in" v-on:click.native="tryLogIn()"/>
           &nbsp;&nbsp;&nbsp;
-          <virtusize-btn btn-class="btn btn--big btn--ghost" label="Sign up" v-on:click.native="changePanel('signup')"/>
+          <VirtusizeBtn btn-class="btn btn--big btn--ghost" label="Sign up" v-on:click.native="changePanel('signup')"/>
         </div>
       </div>
       <!-- !Sign In Panel -->
@@ -34,14 +34,14 @@
         <h2 class="tagline">Online Clothes Shopping Made Easy</h2>
         <div class="form-label">Thank you for your interest in Virtusize, please create an account to continue.</div>
         <form class="signup-form">
-          <big-input label="Email Address" v-model="signup.email"/>
-          <big-input label="Password" type="password" v-model="signup.password"/>
-          <big-input label="Password" type="password" v-model="signup.password_b"/>
+          <BigInput label="Email Address" v-model="signup.email"/>
+          <BigInput label="Password" type="password" v-model="signup.password"/>
+          <BigInput label="Password" type="password" v-model="signup.password_b"/>
         </form>
         <div class="actions">
-          <virtusize-btn btn-class="btn btn--big" label="Sign up"/>
+          <VirtusizeBtn btn-class="btn btn--big" label="Sign up"/>
           &nbsp;&nbsp;&nbsp;
-          <virtusize-btn btn-class="btn btn--big btn--ghost" label="Log in" v-on:click.native="changePanel('signin')"/>
+          <VirtusizeBtn btn-class="btn btn--big btn--ghost" label="Log in" v-on:click.native="changePanel('signin')"/>
         </div>
       </div>
       <!-- !Sign Up Panel -->
@@ -113,7 +113,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .sidebar {
   position: relative;
   background: white;

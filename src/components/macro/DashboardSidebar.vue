@@ -42,7 +42,12 @@
 import LogoWithText from '@/assets/brand/logo-w-text.svg';
 import LogoWithoutText from '@/assets/brand/logo.svg';
 
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
 export default {
+  components: {
+    FontAwesomeIcon
+  },
   computed: {
     LogoWithText: function() { return LogoWithText },
     LogoWithoutText: function() { return LogoWithoutText }

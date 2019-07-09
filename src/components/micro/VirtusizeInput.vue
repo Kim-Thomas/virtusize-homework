@@ -22,8 +22,8 @@ Properties:
     <div class="toggle-password-visibility" 
       v-if="type == 'password' && passwordVisibility" 
       v-on:click="togglePasswordVisibility($event)">
-      <font-awesome-icon icon="eye" class="show-password-icon"/>
-      <font-awesome-icon icon="eye-slash" class="hide-password-icon" style="display: none"/>
+      <font-awesome-icon icon="eye" class="show-password-icon"></font-awesome-icon>
+      <font-awesome-icon icon="eye-slash" class="hide-password-icon" style="display: none"></font-awesome-icon>
       <span>Show</span>
     </div>
 
@@ -39,6 +39,7 @@ Properties:
 
 <script>
 import PasswordStrengthMeter from '@/components/micro/PasswordStrengthMeter.vue'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 let zxcvbn = require('zxcvbn');
 
@@ -86,7 +87,8 @@ export default {
     }
   },
   components: {
-    PasswordStrengthMeter
+    PasswordStrengthMeter,
+    FontAwesomeIcon
   },
   data: function() {
     return {

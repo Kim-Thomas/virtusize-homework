@@ -12,31 +12,34 @@
       </p>
 
       <li>
-        Vue.js
+        <b>Vue.js</b>
       </li>
       <li>
-        VueX ( store )
+        <b>VueX</b> ( store )
       </li>
       <li>
-        Vue Router ( router )
+        <b>Vue Router</b> ( router )
       </li>
       <li>
-        ZXCVBN ( password strength )
+        <b>ZXCVBN</b> ( password strength )
       </li>
       <li>
-        Vue-toasted ( toast notifications )
+        <b>Vue-toasted</b> ( toast notifications )
       </li>
       <li>
-        Font-awesome <i>via</i> vue-fontawesome ( icons )
+        <b>Font-awesome</b> <i>via</i> <b>vue-fontawesome</b> ( icons )
       </li>
       <li>
-        jQuery touchswipe ( homepage's slider touch gesture )
+        <b>jQuery touchswipe</b> ( homepage's slider touch gesture )
       </li>
       <li>
-        Vue-svg-loader ( handling of svg files )
+        <b>Vue-svg-loader</b> ( handling of svg files )
       </li>
       <li>
-        Less ( CSS precompiler )
+        <b>Less</b> ( CSS precompiler )
+      </li>
+      <li>
+        <b>Babel</b> ( IE11 compatibility )
       </li>
 
       <p>
@@ -58,9 +61,17 @@
     margin-top: 60px;
     font-size: 18px;
 
+    p {
+      line-height: 180%;
+    }
+
     li {
       margin: 10px 0;
       padding-left: 20px;
+
+      i {
+        margin: 0 5px;
+      }
     }
   }
 }

@@ -43,8 +43,8 @@
 
       <div class="change-password-container">
         <form class="edition-area">
-          <VirtusizeInput label="Current Password" type="password" size="medium" v-model="current_password" :inline="true"/>
-          <VirtusizeInput label="New Password" type="password" size="medium" v-model="new_password" :inline="true" :password-strength="true" :strength="newPasswordStrength"/>
+          <VirtusizeInput label="Current Password" type="password" size="medium" v-model="current_password" :inline="true" :password-visibility="true"/>
+          <VirtusizeInput label="New Password" type="password" size="medium" v-model="new_password" :inline="true" :password-strength="true" :strength="newPasswordStrength" :password-visibility="true"/>
         </form>
         <VirtusizeBtn btn-class="btn btn--big" label="Change Password" v-on:click.native="changePassword()" v-if="passwordIsChangeable"/>
       </div>

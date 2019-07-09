@@ -1,7 +1,23 @@
+<!--
+Component VirtusizeInput
+==================================
+Properties:
+- (String) value: value of the input.
+- (String) type: input's type.
+- (String) label: input's label.
+- (String) size: component's size : big (default) || medium
+- (Boolean) inline: whether the input should be an inline element or not. false by default.
+- (Boolean) focused: wheter the input should have the focused class by default or not. false by default.
+- (String) validity: whether the input is valid or invalid.
+- (Boolean) passwordStrength: whether to display a strength meter or not.
+- (Number) strength: number representing a ZXCVBN score.
+- (Boolean) passwordVisibility: whether allow password visibility toggling or not.
+-->
+
 <template>
   <div class="virtusize-input-group" :class="groupClasses">
     <label :for="uniqueId">{{label}}</label>
-    <div class="toggle-password-visibility" v-if="type == 'password'" v-on:click="togglePasswordVisibility($event)">
+    <div class="toggle-password-visibility" v-if="type == 'password' && passwordVisibility" v-on:click="togglePasswordVisibility($event)">
       <font-awesome-icon icon="eye" class="show-password-icon"/>
       <font-awesome-icon icon="eye-slash" class="hide-password-icon" style="display: none"/>
       <span>Show</span>
@@ -53,6 +69,10 @@ export default {
     strength: {
       type: Number,
       default: 0
+    },
+    passwordVisibility: {
+      type: Boolean,
+      default: false
     }
   },
   components: {
@@ -65,6 +85,9 @@ export default {
     }
   },
   computed: {
+    /**
+     * Returns a list of classes depending on the different properties passed.
+     */
     groupClasses() {
       let app = this;
       let classes = '';
@@ -84,6 +107,9 @@ export default {
     }
   },
   methods: {
+    /**
+     * Emit the input's value so that parent component can use v-model
+     */
     updateInputVal: function(value) {
       this.$emit('input', value);
     },
@@ -99,6 +125,9 @@ export default {
 
       return text;
     },
+    /**
+     * Toggles between password visible mode and password invisible mode
+     */
     togglePasswordVisibility(e) {
       let app = this;
       $('#'+app.uniqueId).focus();
@@ -117,12 +146,14 @@ export default {
       }
     }
   },
-  created: function() {
-
-  },
   mounted: function() {
     let app = this;
 
+    /**
+     * Handles the focused state, input is focused if:
+     * - input is focused.
+     * - input is not focused but has a non-null value.
+     */
     $('#'+app.uniqueId).on('focus', function() {
       $(this).parent('.virtusize-input-group').addClass('focused');
     });

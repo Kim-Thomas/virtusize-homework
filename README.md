@@ -73,6 +73,7 @@ This homework was made with:
 - Vue
 - VueX ( store )
 - Vue-router ( router )
+- Vue-test-utils ( unit tests )
 - zxcvbn ( password strength )
 - Vue-toasted ( toast notifications )
 - Font-awesome ( icons )

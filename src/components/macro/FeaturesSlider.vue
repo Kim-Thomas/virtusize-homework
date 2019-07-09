@@ -1,5 +1,6 @@
 <template>
   <div class="features-slider">
+
     <div class="feature" v-for="(feature,index) in features" 
       :key="index" 
       v-bind:class="{ active: isActive(index) }" 
@@ -12,6 +13,7 @@
         {{feature.description}}
       </p>
     </div>
+
     <div class="slider-nav">
       <div class="slider-nav__dot" 
         v-for="(feature,index) in features" 
@@ -20,6 +22,7 @@
         v-on:click="goToSlide(index)">
       </div>
     </div>
+    
   </div>
 </template>
 

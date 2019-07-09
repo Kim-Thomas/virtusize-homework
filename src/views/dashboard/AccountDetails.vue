@@ -1,6 +1,7 @@
 <template>
   <div class="account-details">
 
+    <!-- Account Hero -->
     <div class="account-hero">
       <div class="save-user-btn-container" v-if="saveable">
         <VirtusizeBtn btn-class="btn btn--big" 
@@ -9,10 +10,14 @@
       </div>
       <UserPortrait :email="user.email"/>
     </div>
+    <!-- !Account Hero -->
 
+    <!-- Main Container -->
     <div class="container">
 
+      <!-- User Fullname Section -->
       <div class="user-fullname">
+
         <div class="editable-data">
           <div class="data">
             <span v-if="userFullname.length == 1">Undefined</span>
@@ -20,6 +25,7 @@
           </div>
           <font-awesome-icon icon="pen" v-on:click="toggleEditingMode('editing_fullname')"/>
         </div>
+
         <div class="edition-area" v-if="editing_fullname">
           <VirtusizeInput label="First Name" 
             size="medium" v-model="user.first_name" 
@@ -33,9 +39,13 @@
             :focused="true" 
             :validity="lastNameIsValid"/>
         </div>
-      </div>
 
+      </div>
+      <!-- !User Fullname Section -->
+
+      <!-- User Email Section -->
       <div class="user-email">
+
         <div class="editable-data">
           <div class="data">
             <span v-if="user.email.length == 0">Undefined</span>
@@ -43,6 +53,7 @@
           </div>
           <font-awesome-icon icon="pen" v-on:click="toggleEditingMode('editing_email')"/>
         </div>
+
         <div class="edition-area" v-if="editing_email">
           <VirtusizeInput label="Email Address" 
             size="medium" 
@@ -50,13 +61,19 @@
             :focused="true" 
             :validity="emailIsValid"/>
         </div>
-      </div>
 
+      </div>
+      <!-- !User Email Section -->
+
+      <!-- Section Title -->
       <div class="section-title">
         Change Password
       </div>
+      <!-- !Section Title -->
 
+      <!-- Change Password Section -->
       <div class="change-password-container">
+
         <form class="edition-area">
           <VirtusizeInput label="Current Password" 
             type="password" 
@@ -73,13 +90,18 @@
             :strength="newPasswordStrength" 
             :password-visibility="true"/>
         </form>
+
         <VirtusizeBtn btn-class="btn btn--big" 
           label="Change Password" 
           v-on:click.native="changePassword()" 
           v-if="passwordIsChangeable"/>
+          
       </div>
+      <!-- !Change Password Section -->
       
     </div>
+    <!-- !Main Container -->
+
   </div>
 </template>
 

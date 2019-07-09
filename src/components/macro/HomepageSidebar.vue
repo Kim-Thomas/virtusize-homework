@@ -1,8 +1,10 @@
 <template>
   <div class="sidebar">
+
     <div class="site-branding">
       <img class="site-branding__logo" alt="Virtusize Logo" :src="LogoWithText">
     </div>
+    
     <div class="sidebar-content">
 
       <!-- Sign In Panel -->
@@ -62,9 +64,9 @@
     </div>
 
     <div class="site-copyright">
-      {{signin.remember}}
       Just a homework by Thomas Kim for Virtusize.
     </div>
+
   </div>
 </template>
 

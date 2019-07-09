@@ -16,14 +16,24 @@ Properties:
 
 <template>
   <div class="virtusize-input-group" :class="groupClasses">
+
     <label :for="uniqueId">{{label}}</label>
-    <div class="toggle-password-visibility" v-if="type == 'password' && passwordVisibility" v-on:click="togglePasswordVisibility($event)">
+
+    <div class="toggle-password-visibility" 
+      v-if="type == 'password' && passwordVisibility" 
+      v-on:click="togglePasswordVisibility($event)">
       <font-awesome-icon icon="eye" class="show-password-icon"/>
       <font-awesome-icon icon="eye-slash" class="hide-password-icon" style="display: none"/>
       <span>Show</span>
     </div>
-    <input :id="uniqueId" :type="type" :value="value" v-on:keyup="updateInputVal($event.target.value)">
+
+    <input :id="uniqueId" 
+      :type="type" 
+      :value="value" 
+      v-on:keyup="updateInputVal($event.target.value)">
+      
     <PasswordStrengthMeter v-if="passwordStrength" :strength="strength"/>
+
   </div>
 </template>
 

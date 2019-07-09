@@ -1,8 +1,10 @@
 <template>
   <div class="dashboard-sidebar">
+
     <div class="site-branding">
       <img class="site-branding__logo" alt="Virtusize Logo" :src="LogoWithText">
     </div>
+
     <div class="content">
       <h3 class="sidebar-title">Dashboard</h3>
       <ul>
@@ -31,6 +33,7 @@
         </li>
       </ul>
     </div>
+    
   </div>  
 </template>
 

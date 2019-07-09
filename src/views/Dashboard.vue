@@ -1,9 +1,11 @@
 <template>
   <div class="dashboard">
+
     <DashboardSidebar />
     <div class="dashboard-content">
       <router-view></router-view>
     </div>
+    
   </div>
 </template>
 

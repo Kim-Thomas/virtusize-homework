@@ -1,5 +1,6 @@
 <template>
   <div class="password-strength-meter">
+
     <div class="meter" :data-strength="strength">
       <div class="dot" :class="isActive(0)"></div>
       <div class="dot" :class="isActive(1)"></div>
@@ -7,9 +8,11 @@
       <div class="dot" :class="isActive(3)"></div>
       <div class="dot" :class="isActive(4)"></div>
     </div>
+
     <div class="label" :data-strength="strength">
       {{strengthLabel}}
     </div>
+    
   </div>  
 </template>
 

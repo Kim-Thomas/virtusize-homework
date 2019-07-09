@@ -1,7 +1,9 @@
 <template>
   <div class="home">
+
     <HomepageSidebar />
     <FeaturesSlider />
+    
   </div>
 </template>
 

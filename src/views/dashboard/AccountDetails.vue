@@ -78,9 +78,15 @@ export default {
     }
   },
   computed: {
+    /**
+     * Returns the User fullname.
+     */
     userFullname() {
       return this.user.first_name + ' ' + this.user.last_name;
     },
+    /**
+     * Checks the validity of user's email.
+     */
     emailIsValid() {
       let email = this.user.email;
       let regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -90,6 +96,9 @@ export default {
         return 'invalid';
       }
     },
+    /**
+     * Checks the validity of user's first name.
+     */
     firstNameIsValid() {
       let first_name = this.user.first_name;
       if(first_name.length > 1 && first_name.length < 20) {
@@ -98,6 +107,9 @@ export default {
         return 'invalid';
       }
     },
+    /**
+     * Checks the validity of user's last name.
+     */
     lastNameIsValid() {
       let last_name = this.user.last_name;
       if(last_name.length > 1 && last_name.length < 20) {
@@ -106,17 +118,30 @@ export default {
         return 'invalid';
       }
     },
+    /**
+     * Checks if user is saveable:
+     * - Checks that there has been changes made.
+     * - Checks that data is valid.
+     */
     saveable() {
       if(this.edited && this.emailIsValid == 'valid' && this.firstNameIsValid == 'valid' && this.lastNameIsValid == 'valid') {
         return true;
       }
       return false;
     },
+    /**
+     * Returns ZXCBN score for user's new password.
+     */
     newPasswordStrength() {
       let val = this.new_password;
       let result = zxcvbn(val);
       return result.score;
     },
+    /**
+     * Checks if user's new password is changeable:
+     * - Checks that there is a current password filled.
+     * - Checks that the new password has a ZXCVBN score over 3
+     */
     passwordIsChangeable() {
       if(this.current_password.length > 0 && this.newPasswordStrength >= 3) {
         return true;
@@ -125,29 +150,45 @@ export default {
     }
   },
   watch: {
+    /**
+     * Sets the edited variable to true when User changes.
+     */
     user: {
       handler(new_user){
         this.edited = true;
-        this.$store.commit('updateUser', new_user);
       },
       deep: true
     }
   },
   methods: {
+    /**
+     * Toggles the edition area for a user attribute.
+     * Parameters: 
+     * - (String) editing_data : editing_fullname || editing_email
+     */
     toggleEditingMode(editing_data) {
       this[editing_data] = !this[editing_data];
     },
+    /**
+     * Saves the User
+     * - Commit a store action to save the user.
+     * - Close all edition areas.
+     * - Trigger a toast notification.
+     */
     saveUser() {
-      // Here we should save the User, but as this is just the demo, I'll simply set edited to false.
       this.edited = false;
-      // But also close all edition area
       this.editing_fullname = false;
       this.editing_email = false;
       // And let's add a toast to inform the user it has been saved
       this.$toasted.success('User Saved')
     },
+    /**
+     * Updates User Password
+     * - Commit a store action to update the password.
+     * - Reinitialize inputs.
+     * - Trigger a toast notification.
+     */
     changePassword() {
-      // Here we should change the password, but as this is just a demo, I'll simply empty the fields and focus them out.
       this.current_password = '';
       this.new_password = '';
       setTimeout(function() {

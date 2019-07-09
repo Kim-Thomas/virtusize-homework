@@ -3,7 +3,7 @@
 
     <HomepageSidebar />
     <FeaturesSlider />
-    
+
   </div>
 </template>
 
@@ -43,6 +43,18 @@ export default {
   background: #24C6DC;
   background: -webkit-linear-gradient(to top left, #514A9D, #24C6DC);
   background: linear-gradient(to top left, #514A9D, #24C6DC);
+
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: 360px 1fr;
+  }
+
+  @media screen and (max-width: 760px) {
+    grid-template-columns: 1fr;
+
+    .features-slider {
+      display: none;
+    }
+  }
 }
 </style>
 

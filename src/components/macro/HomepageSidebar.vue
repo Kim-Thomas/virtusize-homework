@@ -4,7 +4,7 @@
     <div class="site-branding">
       <img class="site-branding__logo" alt="Virtusize Logo" :src="LogoWithText">
     </div>
-    
+
     <div class="sidebar-content">
 
       <!-- Sign In Panel -->
@@ -144,7 +144,7 @@ export default {
   display: flex;
   align-items: center;
   z-index: 9;
-
+  
   .site-branding {
     position: absolute;
     top: 30px;
@@ -159,6 +159,9 @@ export default {
     padding: 0 30px;
     box-sizing: border-box;
     color: #1d264e;
+    margin: 90px 0;
+    min-height: 0;
+    overflow: hidden;
 
     .panel {
       //display: none;

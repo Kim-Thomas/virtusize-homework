@@ -5,7 +5,7 @@
       <path class="outer-v" d="M150 217.267L55 83H82.5806L150 174.545L214.355 83H245L150 217.267Z" fill="#16C6B9" stroke="#16C6B9" stroke-width="4"/>
       <path class="inner-v" d="M110.439 83H82.8667L150.265 174.2L214.6 83H190.091L150.265 137.72L110.439 83Z" fill="#262929" stroke="#262929" stroke-width="4"/>
     </svg>
-    
+
   </div>
 </template>
 
@@ -17,7 +17,7 @@ export default {
     /**
      * Animate the Virtusize Logo.
      */
-    animateLogo() {
+    animateLogo: function() {
       let $paths = $('.animated-svg path');
       let $inner_v = $('.animated-svg .inner-v');
       let $outer_v = $('.animated-svg .outer-v');
@@ -53,7 +53,7 @@ export default {
     /**
      * Hides the page loader.
      */
-    hidePageLoader() {
+    hidePageLoader: function() {
       $('.page-loader').fadeOut();
     }
   },

@@ -44,8 +44,8 @@ import LogoWithoutText from '@/assets/brand/logo.svg';
 
 export default {
   computed: {
-    LogoWithText() { return LogoWithText },
-    LogoWithoutText() { return LogoWithoutText }
+    LogoWithText: function() { return LogoWithText },
+    LogoWithoutText: function() { return LogoWithoutText }
   },
   methods: {
     /**

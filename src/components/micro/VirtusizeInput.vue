@@ -31,7 +31,7 @@ Properties:
       :type="type" 
       :value="value" 
       v-on:keyup="updateInputVal($event.target.value)">
-      
+
     <PasswordStrengthMeter v-if="passwordStrength" :strength="strength"/>
 
   </div>
@@ -98,7 +98,7 @@ export default {
     /**
      * Returns a list of classes depending on the different properties passed.
      */
-    groupClasses() {
+    groupClasses: function() {
       let app = this;
       let classes = '';
       if(app.focused) {
@@ -138,7 +138,7 @@ export default {
     /**
      * Toggles between password visible mode and password invisible mode
      */
-    togglePasswordVisibility(e) {
+    togglePasswordVisibility: function(e) {
       let app = this;
       $('#'+app.uniqueId).focus();
       let current_type = $('#'+app.uniqueId).attr('type');

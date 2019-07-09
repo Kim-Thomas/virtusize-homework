@@ -38,17 +38,21 @@ export default {
 .home {
   width: 100%;
   height: 100%;
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 460px 1fr;
   grid-template-columns: 460px 1fr;
   background: #24C6DC;
   background: -webkit-linear-gradient(to top left, #514A9D, #24C6DC);
   background: linear-gradient(to top left, #514A9D, #24C6DC);
 
   @media screen and (max-width: 1024px) {
+    -ms-grid-columns: 360px 1fr;
     grid-template-columns: 360px 1fr;
   }
 
   @media screen and (max-width: 760px) {
+    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
 
     .features-slider {

@@ -133,13 +133,13 @@ export default {
     /**
      * Returns the User fullname.
      */
-    userFullname() {
+    userFullname: function() {
       return this.user.first_name + ' ' + this.user.last_name;
     },
     /**
      * Checks the validity of user's email.
      */
-    emailIsValid() {
+    emailIsValid: function() {
       let email = this.user.email;
       let regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       if(regex.test(String(email).toLowerCase())) {
@@ -151,7 +151,7 @@ export default {
     /**
      * Checks the validity of user's first name.
      */
-    firstNameIsValid() {
+    firstNameIsValid: function() {
       let first_name = this.user.first_name;
       if(first_name.length > 1 && first_name.length < 20) {
         return 'valid';
@@ -162,7 +162,7 @@ export default {
     /**
      * Checks the validity of user's last name.
      */
-    lastNameIsValid() {
+    lastNameIsValid: function() {
       let last_name = this.user.last_name;
       if(last_name.length > 1 && last_name.length < 20) {
         return 'valid';
@@ -175,7 +175,7 @@ export default {
      * - Checks that there has been changes made.
      * - Checks that data is valid.
      */
-    saveable() {
+    saveable: function() {
       if(this.edited && this.emailIsValid == 'valid' && this.firstNameIsValid == 'valid' && this.lastNameIsValid == 'valid') {
         return true;
       }
@@ -184,7 +184,7 @@ export default {
     /**
      * Returns ZXCBN score for user's new password.
      */
-    newPasswordStrength() {
+    newPasswordStrength: function() {
       let val = this.new_password;
       let result = zxcvbn(val);
       return result.score;
@@ -194,7 +194,7 @@ export default {
      * - Checks that there is a current password filled.
      * - Checks that the new password has a ZXCVBN score over 3
      */
-    passwordIsChangeable() {
+    passwordIsChangeable: function() {
       if(this.current_password.length > 0 && this.newPasswordStrength >= 3) {
         return true;
       }
@@ -206,7 +206,7 @@ export default {
      * Sets the edited variable to true when User changes.
      */
     user: {
-      handler(new_user){
+      handler: function(new_user){
         this.edited = true;
       },
       deep: true
@@ -218,7 +218,7 @@ export default {
      * Parameters: 
      * - (String) editing_data : editing_fullname || editing_email
      */
-    toggleEditingMode(editing_data) {
+    toggleEditingMode: function(editing_data) {
       this[editing_data] = !this[editing_data];
     },
     /**
@@ -227,7 +227,7 @@ export default {
      * - Close all edition areas.
      * - Trigger a toast notification.
      */
-    saveUser() {
+    saveUser: function() {
       let app = this;
       app.$store.dispatch('updateUser', app.user)
         .then(function(result) {
@@ -246,7 +246,7 @@ export default {
      * - Reinitialize inputs.
      * - Trigger a toast notification.
      */
-    changePassword() {
+    changePassword: function() {
       let app = this;
       app.$store.dispatch('updateUserPassword', app.user, app.new_password)
         .then(function(result) {

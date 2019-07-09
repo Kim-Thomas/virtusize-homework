@@ -22,7 +22,7 @@
         v-on:click="goToSlide(index)">
       </div>
     </div>
-    
+
   </div>
 </template>
 
@@ -65,7 +65,7 @@ export default {
      * Parameters:
      * - (Int) index : the slide index.
      */
-    isActive(index) {
+    isActive: function(index) {
       let is_active;
       index == this.active_item ? is_active = true : is_active = false;
       return is_active;
@@ -75,7 +75,7 @@ export default {
      * Parameters:
      * - (Int) index : index of the slide to jump to.
      */
-    goToSlide(index) {
+    goToSlide: function(index) {
       let app = this;
       app.active_item = index;
       app.offset_left = app.active_item * $('.features-slider').outerWidth();
@@ -83,7 +83,7 @@ export default {
     /**
      * Navigate to the previous slide if there is one.
      */
-    goToPrevSlide() {
+    goToPrevSlide: function() {
       let app = this;
       if(app.active_item > 0) {
         app.active_item--;
@@ -93,7 +93,7 @@ export default {
     /**
      * Navigate to the next slide if there is one.
      */
-    goToNextSlide() {
+    goToNextSlide: function() {
       let app = this;
       if(app.active_item < app.features.length - 1) {
         app.active_item++;
@@ -128,6 +128,7 @@ export default {
   display: flex;
   align-items: center;
   overflow: hidden;
+  -ms-grid-column: 2;
 
   .feature {
     display: block;

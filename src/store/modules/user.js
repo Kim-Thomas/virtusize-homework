@@ -3,7 +3,7 @@ const state = {
 }
 
 const mutations = {
-  updateUser (state,data) {
+  updateUser: function(state,data) {
     Object.assign(state.user, data);
   }
 }
@@ -16,7 +16,7 @@ const actions = {
    * - (String) params.password : user password.
    * - (Boolean) params.remember : whether to create a session or not. default to false.
    */
-  tryLogin({commit, state}, params) {
+  tryLogin: function({commit, state}, params) {
     return new Promise((resolve, reject) => {
       // The login logic should go there, as this is just a homework, I will fake the HTTP request delay with a timeout for realistic purposes.
       setTimeout(function() {
@@ -47,7 +47,7 @@ const actions = {
    * Parameters:
    * - (Object) user : a user.
    */
-  updateUser({ commit, state }, user) {
+  updateUser: function({ commit, state }, user) {
     return new Promise((resolve, reject) => {
       // Here we should do some sanitizing and checking before updating the store.
       commit('updateUser', user);
@@ -60,7 +60,7 @@ const actions = {
    * - (Int) user_id : the user id of the user willing to change his password.
    * - (String) password : the new password.
    */
-  updateUserPassword({ commit, state }, user_id, password) {
+  updateUserPassword: function({ commit, state }, user_id, password) {
     return new Promise((resolve, reject) => {
       // Here we should do some sanitizing and checking before updating the store.
       // Update the user password.
@@ -72,7 +72,7 @@ const actions = {
    * - Empty the user in the store.
    * - Destroys the session.
    */
-  logOut({commit, state}) {
+  logOut: function({commit, state}) {
     return new Promise((resolve, reject) => {
       commit('updateUser', false);
       // Destroying the session

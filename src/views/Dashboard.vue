@@ -30,15 +30,23 @@ export default {
 .dashboard {
   width: 100%;
   height: 100%;
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 320px 1fr;
   grid-template-columns: 320px 1fr;
 
   @media screen and (max-width: 770px) {
+    -ms-grid-columns: 260px 1fr;
     grid-template-columns: 260px 1fr;
   }
 
   @media screen and (max-width: 660px) {
+    -ms-grid-columns: 50px 1fr;
     grid-template-columns: 50px 1fr;
+  }
+
+  .dashboard-content {
+    -ms-grid-column: 2;
   }
 }
 </style>

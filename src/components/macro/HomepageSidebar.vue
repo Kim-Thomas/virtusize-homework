@@ -100,7 +100,7 @@ export default {
     }
   },
   computed: {
-    LogoWithText() { return LogoWithText }
+    LogoWithText: function() { return LogoWithText }
   },
   methods: {
     /**
@@ -108,13 +108,13 @@ export default {
      * Parameters:
      * - (String) new_panel : signing || signup
      */
-    changePanel(new_panel) {
+    changePanel: function(new_panel) {
       this.current_panel = new_panel;
     },
     /**
      * Dispatch a store action to try to login, if successful, redirects to the dashboard. If not, displays an error.
      */
-    tryLogIn() {
+    tryLogIn: function() {
       let app = this;
       app.processing_signin = true;
       app.$store.dispatch("tryLogin", {

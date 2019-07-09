@@ -12,7 +12,7 @@
     <div class="label" :data-strength="strength">
       {{strengthLabel}}
     </div>
-    
+
   </div>  
 </template>
 
@@ -28,7 +28,7 @@ export default {
     /**
      * Returns a textual interpretation of the current ZXCVBN score
      */
-    strengthLabel() {
+    strengthLabel: function() {
       switch(this.strength) {
         case 0:
           return 'Very weak'
@@ -54,7 +54,7 @@ export default {
      * Parameters:
      * - (Int) index : the dot index.
      */
-    isActive(index) {
+    isActive: function(index) {
       if(index <= this.strength) {
         return 'active';
       } else {

@@ -12,7 +12,7 @@
         <div class="error-badge" v-if="signing_error">
           {{signing_error}}
         </div>
-        <form class="signin-form">
+        <form class="signin-form" v-on:keyup.enter="tryLogIn()">
           <div class="processing-form-overlay" v-if="processing_signin">
             <div class="lds-dual-ring"></div>
           </div>

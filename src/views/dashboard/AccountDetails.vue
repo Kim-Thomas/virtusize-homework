@@ -69,6 +69,9 @@
       <div class="section-title">
         Change Password
       </div>
+      <div class="section-subtitle">
+        Please write any password in the current password field.
+      </div>
       <!-- !Section Title -->
 
       <!-- Change Password Section -->
@@ -378,9 +381,18 @@ export default {
       font-size: 1em;
       font-weight: 900;
       opacity: .8;
-      margin: 40px 0;
+      margin-top: 60px;
+      margin-bottom: 10px;
       text-transform: uppercase;
       color: #16C6B9;
+    }
+
+    .section-subtitle {
+      font-size: .7em;
+      font-weight: 600;
+      text-transform: uppercase;
+      opacity: .6;
+      margin-bottom: 40px;
     }
 
     .change-password-container {

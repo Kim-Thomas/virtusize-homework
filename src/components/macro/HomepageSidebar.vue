@@ -19,7 +19,7 @@
           <VirtusizeInput label="Email Address" v-model="signin.email"/>
           <VirtusizeInput label="Password" type="password" v-model="signin.password"/>
         </form>
-        <input type="checkbox" name="vehicle1" value="Bike" id="remember-me"> 
+        <input type="checkbox" name="remember-me" id="remember-me" v-model="signin.remember"> 
         <label for="remember-me" class="checkbox-label">Remember Me</label>
         <div class="actions">
           <VirtusizeBtn btn-class="btn btn--big" label="Log in" v-on:click.native="tryLogIn()"/>
@@ -45,6 +45,7 @@
       <!-- !Sign Up Panel -->
     </div>
     <div class="site-copyright">
+      {{signin.remember}}
       Just a homework by Thomas Kim for Virtusize.
     </div>
   </div>
@@ -69,7 +70,8 @@ export default {
       signing_error: false,
       signin: {
         email: '',
-        password: ''
+        password: '',
+        remember: false
       },
       signup: {
         email: '',
@@ -95,7 +97,11 @@ export default {
     tryLogIn() {
       let app = this;
       app.processing_signin = true;
-      app.$store.dispatch("tryLogin", {email:app.signin.email, password:app.signin.password})
+      app.$store.dispatch("tryLogin", {
+          email: app.signin.email, 
+          password: app.signin.password,
+          remember: app.signin.remember
+        })
         .then(function(result) {
           app.processing_signin = false;
           app.$router.push({ path: 'dashboard' })

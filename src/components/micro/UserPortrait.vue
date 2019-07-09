@@ -57,13 +57,11 @@ export default {
     let app = this;
     let email = app.sanitizedEmail;
     if(email) {
-      console.log('test')
       let md5_email = md5(email);
       let gravatar_base_url = "https://www.gravatar.com/avatar/"
       let size = "?s=200"
       let default_image = "&d=" + encodeURI(default_image_url)
       app.portrait = gravatar_base_url + md5_email + size + default_image;
-      console.log(app.portrait);
       app.isUsingDefault = false;
     } else {
       if(!app.isUsingDefault) {

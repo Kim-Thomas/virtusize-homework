@@ -15,8 +15,18 @@ export default {
     HomepageSidebar,
     FeaturesSlider
   },
-  mounted: function() {
+  created: function() {
     let app = this;
+
+    if(sessionStorage.getItem('session_user') && JSON.parse(sessionStorage.getItem('session_user'))) {
+      this.$store.dispatch('forceLogin', JSON.parse(sessionStorage.getItem('session_user')))
+        .then(function(result) {
+            app.$router.push({ path: 'dashboard' })
+          }, function(err) {
+            error.log(err);
+          }
+        );
+      }
   }
 }
 </script>

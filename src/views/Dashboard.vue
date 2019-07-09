@@ -26,8 +26,8 @@
             </router-link>
           </li>
           <li>
-            <a href="" class='log-out-link'>
-              <font-awesome-icon icon="sign-out-alt" /> log Out
+            <a href="" class='log-out-link' v-on:click.prevent="logOut()">
+              <font-awesome-icon icon="sign-out-alt" /> Log Out
             </a>
           </li>
         </ul>
@@ -45,6 +45,15 @@ import LogoWithText from '@/assets/brand/logo-w-text.svg';
 export default {
   computed: {
     LogoWithText() { return LogoWithText }
+  },
+  methods: {
+    logOut: function() {
+      let app = this;
+      this.$store.dispatch('logOut')
+        .then(function(result) {
+          app.$router.push({ path: '/' })
+        });
+    }
   },
   created: function() {
     let app = this;

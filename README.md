@@ -30,7 +30,7 @@ You can also check the *remember me* checkbox to create a session.
 ### Editing the account
 
 #### Changing user's full name
-To change the user's name, click on the **little blue pen** next to the user's full name, then edit the first name and last name.
+To change the user's name, click on the **little blue pen** next to the user's full name, then edit the first name and last name, **both must not be empty**.
 
 After you are done with your modifications, click on the "Save Modifications" button at the top of the page.
 

@@ -111,7 +111,7 @@
 <script>
 import VirtusizeInput from '@/components/micro/VirtusizeInput.vue';
 import VirtusizeBtn from '@/components/micro/VirtusizeButton.vue';
-import UserPortrait from '@/components/micro/UserPortrait.vue';\
+import UserPortrait from '@/components/micro/UserPortrait.vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import { setTimeout } from 'timers';

@@ -9,6 +9,13 @@ const mutations = {
 }
 
 const actions = {
+  /**
+   * Try to log in a user
+   * Parameters:
+   * - (String) params.email : user email.
+   * - (String) params.password : user password.
+   * - (Boolean) params.remember : whether to create a session or not. default to false.
+   */
   tryLogin({commit, state}, params) {
     return new Promise((resolve, reject) => {
       // The login logic should go there, as this is just a homework, I will fake the HTTP request delay with a timeout for realistic purposes.
@@ -35,33 +42,42 @@ const actions = {
       }, 600);
     })
   },
-  // Would be used when detecting a session. But not this time as it's a demo.
-  forceLogin({commit, state}, user) {
-    return new Promise((resolve, reject) => {
-      commit('updateUser', user);
-      resolve('Now logged.');
-    });
-  },
-  logOut({commit, state}) {
-    return new Promise((resolve, reject) => {
-      commit('updateUser', false);
-      // Destroying the session
-      sessionStorage.setItem('session_user', false);
-      resolve('Now logged out.');
-    });
-  },
-  updateUser({commit, state}, user) {
+  /**
+   * Updates the user in the store, and calls the API for updating the user in the DB.
+   * Parameters:
+   * - (Object) user : a user.
+   */
+  updateUser({ commit, state }, user) {
     return new Promise((resolve, reject) => {
       // Here we should do some sanitizing and checking before updating the store.
       commit('updateUser', user);
       resolve('User has been updated.');
     });
   },
+  /**
+   * Updates the user password.
+   * Parameters:
+   * - (Int) user_id : the user id of the user willing to change his password.
+   * - (String) password : the new password.
+   */
   updateUserPassword({ commit, state }, user_id, password) {
     return new Promise((resolve, reject) => {
       // Here we should do some sanitizing and checking before updating the store.
       // Update the user password.
       resolve('User password has been updated.');
+    });
+  },
+  /**
+   * Logs the user out:
+   * - Empty the user in the store.
+   * - Destroys the session.
+   */
+  logOut({commit, state}) {
+    return new Promise((resolve, reject) => {
+      commit('updateUser', false);
+      // Destroying the session
+      sessionStorage.setItem('session_user', false);
+      resolve('Now logged out.');
     });
   },
 }

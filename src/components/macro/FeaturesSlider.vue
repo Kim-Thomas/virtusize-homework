@@ -1,6 +1,9 @@
 <template>
   <div class="features-slider">
-    <div class="feature" v-for="(feature,index) in features" :key="index" v-bind:class="{ active: isActive(index) }" :style="'transform: translateX(-'+offset_left+'px)'">
+    <div class="feature" v-for="(feature,index) in features" 
+      :key="index" 
+      v-bind:class="{ active: isActive(index) }" 
+      :style="'transform: translateX(-'+offset_left+'px)'">
       <img :src="feature.illustration" class="feature__illustration">
       <h3 class="feature__title">
         {{feature.title}}
@@ -10,7 +13,12 @@
       </p>
     </div>
     <div class="slider-nav">
-      <div class="slider-nav__dot" v-for="(feature,index) in features" :key="index" v-bind:class="{ active: isActive(index) }" v-on:click="goToSlide(index)"></div>
+      <div class="slider-nav__dot" 
+        v-for="(feature,index) in features" 
+        :key="index" 
+        v-bind:class="{ active: isActive(index) }" 
+        v-on:click="goToSlide(index)">
+      </div>
     </div>
   </div>
 </template>
@@ -49,16 +57,29 @@ export default {
     }
   },
   methods: {
+    /**
+     * Determines if a slide is active or not based on its index.
+     * Parameters:
+     * - (Int) index : the slide index.
+     */
     isActive(index) {
       let is_active;
       index == this.active_item ? is_active = true : is_active = false;
       return is_active;
     },
+    /**
+     * Jumps to a specific slide.
+     * Parameters:
+     * - (Int) index : index of the slide to jump to.
+     */
     goToSlide(index) {
       let app = this;
       app.active_item = index;
       app.offset_left = app.active_item * $('.features-slider').outerWidth();
     },
+    /**
+     * Navigate to the previous slide if there is one.
+     */
     goToPrevSlide() {
       let app = this;
       if(app.active_item > 0) {
@@ -66,6 +87,9 @@ export default {
         app.offset_left = app.active_item * $('.features-slider').outerWidth();
       }
     },
+    /**
+     * Navigate to the next slide if there is one.
+     */
     goToNextSlide() {
       let app = this;
       if(app.active_item < app.features.length - 1) {
@@ -77,18 +101,18 @@ export default {
   mounted: function() {
     let app = this;
 
-    let last_offset = 0;
+    // Note: Swipe gesture support.
     $('.features-slider').swipe( {
-        swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-          if(direction == 'left') {
-            app.goToNextSlide();
-          }
-          if(direction == 'right') {
-            app.goToPrevSlide()
-          }
-        },
-         threshold: 75
-      });
+      swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+        if(direction == 'left') {
+          app.goToNextSlide();
+        }
+        if(direction == 'right') {
+          app.goToPrevSlide()
+        }
+      },
+      threshold: 75
+    });
   }
 }
 </script>

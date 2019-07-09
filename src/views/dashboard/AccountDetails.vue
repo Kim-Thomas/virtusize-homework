@@ -95,7 +95,7 @@
           label="Change Password" 
           v-on:click.native="changePassword()" 
           v-if="passwordIsChangeable"/>
-          
+
       </div>
       <!-- !Change Password Section -->
       
@@ -267,6 +267,7 @@ export default {
 
 <style lang="less">
 @portrait_size: 150px;
+@portrait_size_mini: 90px;
 
 .account-details {
   width: 100%;
@@ -279,6 +280,10 @@ export default {
     background: #24C6DC;
     background: -webkit-linear-gradient(to top left, #514A9D, #24C6DC);
     background: linear-gradient(to top left, #514A9D, #24C6DC);
+
+    @media screen and (max-width: 660px) {
+      height: 150px;
+    }
 
     .save-user-btn-container {
       position: absolute;
@@ -304,11 +309,18 @@ export default {
       border: 4px solid white;
       background-size: cover;
       background-position: center;
+
+      @media screen and (max-width: 660px) {
+        width: @portrait_size_mini;
+        height: @portrait_size_mini;
+        bottom: -@portrait_size_mini/2;
+        margin-left: calc(-@portrait_size_mini/2 - 4px);
+      }
     }
   }
 
   .container {
-    width: 90%;
+    width: 95%;
     max-width: 560px;
     margin: auto;
 
@@ -336,6 +348,10 @@ export default {
       margin-top: calc(@portrait_size/2 + 30px);
       font-size: 1.4em;
       font-weight: 600;
+
+      @media screen and (max-width: 660px) {
+        margin-top: calc(@portrait_size_mini/2 + 30px);
+      }
 
       .edition-area {
         margin-top: 20px;

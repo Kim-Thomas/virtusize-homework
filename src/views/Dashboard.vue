@@ -5,7 +5,7 @@
     <div class="dashboard-content">
       <router-view></router-view>
     </div>
-    
+
   </div>
 </template>
 
@@ -32,5 +32,9 @@ export default {
   height: 100%;
   display: grid;
   grid-template-columns: 320px 1fr;
+
+  @media screen and (max-width: 660px) {
+    grid-template-columns: 50px 1fr;
+  }
 }
 </style>

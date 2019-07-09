@@ -3,6 +3,7 @@
 
     <div class="site-branding">
       <img class="site-branding__logo" alt="Virtusize Logo" :src="LogoWithText">
+      <img class="site-branding__logo--mini" alt="Virtusize Logo" :src="LogoWithoutText">
     </div>
 
     <div class="content">
@@ -10,12 +11,12 @@
       <ul>
         <li>
           <router-link to="/dashboard/account-details">
-            <font-awesome-icon icon="user-secret" /> Account Details
+            <font-awesome-icon icon="user-secret" /> <span>Account Details</span>
           </router-link>
         </li>
         <li>
           <router-link to="/dashboard/my-wardrobe">
-            <font-awesome-icon icon="socks" /> My Wardrobe
+            <font-awesome-icon icon="socks" /> <span>My Wardrobe</span>
           </router-link>
         </li>
       </ul>
@@ -23,26 +24,28 @@
       <ul>
         <li>
           <router-link to="/dashboard/about">
-            <font-awesome-icon icon="question-circle" /> About
+            <font-awesome-icon icon="question-circle" /> <span>About</span>
           </router-link>
         </li>
         <li>
           <a href="" class='log-out-link' v-on:click.prevent="logOut()">
-            <font-awesome-icon icon="sign-out-alt" /> Log Out
+            <font-awesome-icon icon="sign-out-alt" /> <span>Log Out</span>
           </a>
         </li>
       </ul>
     </div>
-    
+
   </div>  
 </template>
 
 <script>
 import LogoWithText from '@/assets/brand/logo-w-text.svg';
+import LogoWithoutText from '@/assets/brand/logo.svg';
 
 export default {
   computed: {
-    LogoWithText() { return LogoWithText }
+    LogoWithText() { return LogoWithText },
+    LogoWithoutText() { return LogoWithoutText }
   },
   methods: {
     /**
@@ -69,7 +72,7 @@ export default {
   display: flex;
   align-items: center;
   z-index: 9;
-
+  
   .site-branding {
     position: absolute;
     top: 30px;
@@ -78,12 +81,34 @@ export default {
     &__logo {
       height: 25px;
     }
+
+    &__logo--mini {
+      width: 40px;
+      display: none;
+    }
+
+    @media screen and (max-width: 660px) {
+      left: 5px;
+      top: 10px;
+
+      &__logo {
+        display: none;
+      }
+
+      &__logo--mini {
+        display: block;
+      }
+    }
   }
 
   .content {
     width: 100%;
     padding: 0 30px;
     box-sizing: border-box;
+
+    @media screen and (max-width: 660px) {
+      padding: 0 15px;
+    }
 
     .sidebar-title {
       color: #16C6B9;
@@ -93,6 +118,10 @@ export default {
       margin-bottom: 20px;
       text-transform: uppercase;
       opacity: 1;
+
+      @media screen and (max-width: 660px) {
+        display: none;
+      }
     }
 
     ul {
@@ -145,6 +174,24 @@ export default {
           svg {
             width: 20px;
             margin-right: 10px;
+          }
+
+          @media screen and (max-width: 660px) {
+            span {
+              display: none;
+            }
+
+            &.router-link-active {
+              &::after {
+                content: "";
+                position: absolute;
+                top: 25%;
+                left: calc(~'50px - 15px - 2px');
+                height: 50%;
+                width: 2px;
+                background: #16C6B9;
+              }
+            }
           }
         }
       }

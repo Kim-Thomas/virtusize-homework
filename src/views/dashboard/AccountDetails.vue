@@ -201,7 +201,7 @@ export default {
     },
     /**
      * Saves the User
-     * - Commit a store action to save the user.
+     * - Dispatch a store action to save the user.
      * - Close all edition areas.
      * - Trigger a toast notification.
      */
@@ -214,7 +214,7 @@ export default {
     },
     /**
      * Updates User Password
-     * - Commit a store action to update the password.
+     * - Dispatch a store action to update the password.
      * - Reinitialize inputs.
      * - Trigger a toast notification.
      */

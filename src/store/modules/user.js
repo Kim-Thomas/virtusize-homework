@@ -21,7 +21,7 @@ const actions = {
       // The login logic should go there, as this is just a homework, I will fake the HTTP request delay with a timeout for realistic purposes.
       setTimeout(function() {
         // Demo code follows, simply returning a user as long as the provided email was haruki@murakami.com
-        if(params.email == 'haruki@murakami.com') {
+        if(params.email.toLowerCase() == 'haruki@murakami.com') {
           // Fake API answer, returning the user.
           let api_answer = {
             _id: 267,

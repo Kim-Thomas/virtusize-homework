@@ -29,21 +29,21 @@ You can also check the *remember me* checkbox to create a session.
 
 ### Editing the account
 
-##### Changing user's fullname
+#### Changing user's fullname
 To change the user's name, click on the **little blue pen** next to the user's fullname, then edit the first name and last name.
 
 After you are done with your modifications, click on the "Save Modifications" button at the top of the page.
 
 ![Editing User's Fullname](https://thomaskim.fr/public_assets/editing-user-fullname.gif)
 
-##### Changing user's email / gravatar
+#### Changing user's email / gravatar
 To change the user's portrait, you need to change its email to match a linked Gravatar portrait.
 
 To edit the email, click on the **little blue pen** next to the user's email and type in your email. If we detect a gravatar linked to that email, it will be displayed automatically.
 
 ![Editing User's Email](https://thomaskim.fr/public_assets/editing-user-email.gif)
 
-##### Changing user's password
+#### Changing user's password
 
 In order to change the user password, start by entering **any password** ( longer than 1 character ) in the *Current Password* field.
 

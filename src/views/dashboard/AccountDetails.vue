@@ -206,11 +206,17 @@ export default {
      * - Trigger a toast notification.
      */
     saveUser() {
-      this.edited = false;
-      this.editing_fullname = false;
-      this.editing_email = false;
-      // And let's add a toast to inform the user it has been saved
-      this.$toasted.success('User Saved')
+      let app = this;
+      app.$store.dispatch('updateUser', app.user)
+        .then(function(result) {
+          app.edited = false;
+          app.editing_fullname = false;
+          app.editing_email = false;
+          app.$toasted.success('User Saved')
+          }, function(err) {
+            error.log(err);
+          }
+        );
     },
     /**
      * Updates User Password
@@ -219,12 +225,19 @@ export default {
      * - Trigger a toast notification.
      */
     changePassword() {
-      this.current_password = '';
-      this.new_password = '';
-      setTimeout(function() {
-        $('input').focusout();
-      })
-      this.$toasted.success('Password Updated')
+      let app = this;
+      app.$store.dispatch('updateUserPassword', app.user, app.new_password)
+        .then(function(result) {
+          app.current_password = '';
+          app.new_password = '';
+          setTimeout(function() {
+            $('input').focusout();
+          })
+          app.$toasted.success('Password Updated')
+        }, function(err) {
+          error.log(err);
+        }
+        );
     }
   }
 }

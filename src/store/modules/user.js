@@ -49,7 +49,21 @@ const actions = {
       sessionStorage.setItem('session_user', false);
       resolve('Now logged out.');
     });
-  }
+  },
+  updateUser({commit, state}, user) {
+    return new Promise((resolve, reject) => {
+      // Here we should do some sanitizing and checking before updating the store.
+      commit('updateUser', user);
+      resolve('User has been updated.');
+    });
+  },
+  updateUserPassword({ commit, state }, user_id, password) {
+    return new Promise((resolve, reject) => {
+      // Here we should do some sanitizing and checking before updating the store.
+      // Update the user password.
+      resolve('User password has been updated.');
+    });
+  },
 }
 
 const getters = {

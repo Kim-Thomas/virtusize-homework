@@ -29,12 +29,12 @@ You can also check the *remember me* checkbox to create a session.
 
 ### Editing the account
 
-#### Changing user's fullname
-To change the user's name, click on the **little blue pen** next to the user's fullname, then edit the first name and last name.
+#### Changing user's full name
+To change the user's name, click on the **little blue pen** next to the user's full name, then edit the first name and last name.
 
 After you are done with your modifications, click on the "Save Modifications" button at the top of the page.
 
-![Editing User's Fullname](https://thomaskim.fr/public_assets/editing-user-fullname.gif)
+![Editing User's full name](https://thomaskim.fr/public_assets/editing-user-fullname.gif)
 
 #### Changing user's email / gravatar
 To change the user's portrait, you need to change its email to match a linked Gravatar portrait.
@@ -51,7 +51,7 @@ Then add a new password in the *New Password* field, **it must obtain a ZXCVBN s
 
 Once this is done, click on the "Update Password" button to save your modifications.
 
-> Note: the assignment was stating:  "Password form should have an option to unmask (no confirm password field) and should display a strength meter.", I'm not sure if it meant no current password field, or no "confirm new password a second time" field. In doubt, I went for the second option.
+> Note: the assignment was stating:  "Password form should have an option to unmask (no confirm password field) and should display a strength meter.", I'm not sure if it meant no "current password" field, or no "confirm new password" field. I went for the second option.
 
 ![Editing User's Password](https://thomaskim.fr/public_assets/editing-user-password.gif)
 

@@ -46,7 +46,7 @@
           <VirtusizeInput label="Current Password" type="password" size="medium" v-model="current_password" :inline="true"/>
           <VirtusizeInput label="New Password" type="password" size="medium" v-model="new_password" :inline="true" :password-strength="true" :strength="newPasswordStrength"/>
         </form>
-        <VirtusizeBtn btn-class="btn btn--big" label="Change Password" v-on:click.native="saveUser()" v-if="passwordIsChangeable"/>
+        <VirtusizeBtn btn-class="btn btn--big" label="Change Password" v-on:click.native="changePassword()" v-if="passwordIsChangeable"/>
       </div>
       
     </div>
@@ -57,6 +57,7 @@
 import VirtusizeInput from '@/components/micro/VirtusizeInput.vue';
 import VirtusizeBtn from '@/components/micro/VirtusizeButton.vue';
 import UserPortrait from '@/components/micro/UserPortrait.vue';
+import { setTimeout } from 'timers';
 
 let zxcvbn = require('zxcvbn'); 
 
@@ -142,6 +143,17 @@ export default {
       // But also close all edition area
       this.editing_fullname = false;
       this.editing_email = false;
+      // And let's add a toast to inform the user it has been saved
+      this.$toasted.success('User Saved')
+    },
+    changePassword() {
+      // Here we should change the password, but as this is just a demo, I'll simply empty the fields and focus them out.
+      this.current_password = '';
+      this.new_password = '';
+      setTimeout(function() {
+        $('input').focusout();
+      })
+      this.$toasted.success('Password Updated')
     }
   }
 }

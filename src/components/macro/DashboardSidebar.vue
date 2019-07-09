@@ -176,6 +176,14 @@ export default {
             margin-right: 10px;
           }
 
+          @media screen and (max-width: 770px) {
+            &.router-link-active {
+              &::after {
+                left: calc(~'260px - 30px - 4px');
+              }
+            }
+          }
+
           @media screen and (max-width: 660px) {
             span {
               display: none;
@@ -183,13 +191,10 @@ export default {
 
             &.router-link-active {
               &::after {
-                content: "";
-                position: absolute;
                 top: 25%;
                 left: calc(~'50px - 15px - 2px');
                 height: 50%;
                 width: 2px;
-                background: #16C6B9;
               }
             }
           }

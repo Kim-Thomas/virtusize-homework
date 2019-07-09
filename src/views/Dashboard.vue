@@ -33,6 +33,10 @@ export default {
   display: grid;
   grid-template-columns: 320px 1fr;
 
+  @media screen and (max-width: 770px) {
+    grid-template-columns: 260px 1fr;
+  }
+
   @media screen and (max-width: 660px) {
     grid-template-columns: 50px 1fr;
   }

@@ -18,6 +18,7 @@ export default {
   created: function() {
     let app = this;
 
+    // If there is a session, automatically log-in the user.
     if(sessionStorage.getItem('session_user') && JSON.parse(sessionStorage.getItem('session_user'))) {
       this.$store.dispatch('forceLogin', JSON.parse(sessionStorage.getItem('session_user')))
         .then(function(result) {
@@ -26,7 +27,7 @@ export default {
             error.log(err);
           }
         );
-      }
+    }
   }
 }
 </script>

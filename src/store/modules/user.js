@@ -37,7 +37,7 @@ const actions = {
           }
           resolve('Now logged.')
         } else {
-          reject(Error('Incorrect logs. You should try with haruki@murakami.com ;)'))
+          reject(Error('Incorrect logs. You should try with haruki@murakami.com.'))
         }
       }, 600);
     })

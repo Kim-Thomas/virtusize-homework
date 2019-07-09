@@ -22,6 +22,9 @@ export default {
     }
   },
   computed: {
+    /**
+     * Returns a textual interpretation of the current ZXCVBN score
+     */
     strengthLabel() {
       switch(this.strength) {
         case 0:
@@ -43,6 +46,11 @@ export default {
     }
   },
   methods: {
+    /**
+     * Returns active if index ( parameter ) is inferior or equal to current ZXCVBN score
+     * Parameters:
+     * - (Int) index : the dot index.
+     */
     isActive(index) {
       if(index <= this.strength) {
         return 'active';
@@ -102,7 +110,7 @@ export default {
     text-transform: uppercase;
     font-weight: 600;
     margin-top: 10px;
-    
+
     &[data-strength='0'] {
       color: #c0392b;
     }

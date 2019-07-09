@@ -23,6 +23,12 @@ export default {
     }
   },
   computed: {
+    /**
+     * Returns a sanitized email:
+     * - matches the regex for an email
+     * - trimmed
+     * - lower-cased
+     */
     sanitizedEmail() {
       let email = this.email;
       let regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -35,6 +41,10 @@ export default {
     }
   },
   watch: {
+    /**
+     * Everytime the email changes, if it's a valid email, checks gravatar for a portrait.
+     * If not a valid email, keeps the default portrait.
+     */
     email: function(newVal, oldVal) {
       let app = this;
       let email = app.sanitizedEmail;
@@ -55,6 +65,10 @@ export default {
   },
   mounted: function() {
     let app = this;
+
+    /**
+     * Initialize portrait, cf the watch email above.
+     */
     let email = app.sanitizedEmail;
     if(email) {
       let md5_email = md5(email);

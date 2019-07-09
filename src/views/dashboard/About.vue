@@ -30,7 +30,7 @@
         <b>Font-awesome</b> <i>via</i> <b>vue-fontawesome</b> ( icons )
       </li>
       <li>
-        <b>jQuery touchswipe</b> ( homepage's slider touch gesture )
+        <b>Undraw</b> ( Illustrations )
       </li>
       <li>
         <b>Vue-svg-loader</b> ( handling of svg files )

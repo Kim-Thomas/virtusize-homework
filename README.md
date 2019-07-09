@@ -60,3 +60,18 @@ Once this is done, click on the "Update Password" button to save your modificati
 ### Logging-out
 
 To log-out, click on the *log-out* link at the bottom of the left sidebar in the dashboard.
+
+## Credits
+
+This homework was made with:
+
+- Vue
+- VueX ( store )
+- Vue-router ( router )
+- zxcvbn ( password strength )
+- Vue-toasted ( toast notifications )
+- Font-awesome ( icons )
+- Undraw ( illustrations )
+- Vue-svg-loader ( loading of svg files )
+- Less ( CSS Precompiler )
+- Babel ( Polyfills )

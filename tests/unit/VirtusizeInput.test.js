@@ -53,5 +53,16 @@ describe('VirtusizeInput.vue', () => {
       }
     })
     expect(wrapper.find('.virtusize-input-group').contains('.toggle-password-visibility')).toBe(true)
+    wrapper.setProps({
+      type: 'text'
+    })
+    expect(wrapper.find('.virtusize-input-group').contains('.toggle-password-visibility')).toBe(false)
   })
+
+  it('method "makeid" is working', () => {
+    const wrapper = shallowMount(VirtusizeInput)
+    const id = wrapper.vm.makeid();
+    expect(id).toMatch(/[a-zA-Z]{5}/)
+  })
+  
 })

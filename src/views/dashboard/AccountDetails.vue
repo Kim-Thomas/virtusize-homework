@@ -42,10 +42,10 @@
       </div>
 
       <div class="change-password-container">
-        <div class="edition-area">
+        <form class="edition-area">
           <VirtusizeInput label="Current Password" type="password" size="medium" v-model="current_password" :inline="true"/>
           <VirtusizeInput label="New Password" type="password" size="medium" v-model="new_password" :inline="true" :password-strength="true" :strength="newPasswordStrength"/>
-        </div>
+        </form>
         <VirtusizeBtn btn-class="btn btn--big" label="Change Password" v-on:click.native="saveUser()" v-if="passwordIsChangeable"/>
       </div>
       

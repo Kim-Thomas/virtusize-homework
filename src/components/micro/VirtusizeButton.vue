@@ -1,3 +1,12 @@
+<!--
+Component VirtusizeButton
+==================================
+Properties:
+- (String) btnClass: class to be added to the button.
+- (String) label: the button text.
+- (String) to: button's href attribute.
+-->
+
 <template>
   <a :href="to" :class="btnClass">
     {{label}}

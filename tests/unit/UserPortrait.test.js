@@ -10,7 +10,7 @@ describe('UserPortrait.vue', () => {
   })
 
   it('sanitizes email correctly', () => {
-    const wrapper =shallowMount(UserPortrait);
+    const wrapper = shallowMount(UserPortrait);
     const valid_email = 'iam@avalidemail.com'
     const invalid_email = 'iamnotavalidemail.com'
     wrapper.setProps({
@@ -21,5 +21,13 @@ describe('UserPortrait.vue', () => {
       email: invalid_email
     })
     expect(wrapper.vm.sanitizedEmail).toBe(false)
+  })
+
+  it('watching email correctly', () => {
+    const wrapper = shallowMount(UserPortrait);
+    wrapper.setProps({
+      email: 'thomas@meow.fr'
+    })
+    expect(wrapper.vm.isUsingDefault).toBe(false)
   })
 })

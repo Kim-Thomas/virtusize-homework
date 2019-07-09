@@ -111,7 +111,7 @@ export default {
     }
 
     .sidebar-title {
-      color: #16C6B9;
+      color: @virtusize_blue;
       font-weight: 900;
       font-size: .8em;
       margin-top: 20px;
@@ -167,7 +167,7 @@ export default {
               left: calc(~'320px - 30px - 4px');
               height: 100%;
               width: 4px;
-              background: #16C6B9;
+              background: @virtusize_blue;
             }
           }
 

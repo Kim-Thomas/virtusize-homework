@@ -336,7 +336,7 @@ export default {
         transform: scale(.7);
         top: 0;
         right: -40px;
-        color: #16C6B9;
+        color: @virtusize_blue;
         cursor: pointer;
 
         &:hover {
@@ -384,7 +384,7 @@ export default {
       margin-top: 60px;
       margin-bottom: 10px;
       text-transform: uppercase;
-      color: #16C6B9;
+      color: @virtusize_blue;
     }
 
     .section-subtitle {

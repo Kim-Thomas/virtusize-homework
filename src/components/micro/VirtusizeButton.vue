@@ -37,9 +37,9 @@ export default {
   display: inline-block;
   text-decoration: none;
   font-weight: 600;
-  border: .5px solid #16C6B9;
-  box-shadow: 0 0 2px #16C6B9;
-  background: #16C6B9;
+  border: .5px solid @virtusize_blue;
+  box-shadow: 0 0 2px @virtusize_blue;
+  background: @virtusize_blue;
   color: white;
   font-size: 14px;
   border-radius: 3px;
@@ -59,7 +59,7 @@ export default {
 
   &--ghost {
     background: none;
-    color: #16C6B9;
+    color: @virtusize_blue;
   }
 }
 </style>

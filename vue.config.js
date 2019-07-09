@@ -16,5 +16,14 @@ module.exports = {
       .options({
         name: 'assets/[name].[hash:8].[ext]',
       });
+  },
+  css: {
+    loaderOptions: {
+      less: {
+        globalVars: {
+          virtusize_blue: '#16C6B9'
+        }
+      }
+    }
   }
 }

@@ -179,7 +179,7 @@ export default {
 <style lang="less">
 .virtusize-input-group {
   position: relative;
-  box-shadow: 0 0 1px #16C6B9;
+  box-shadow: 0 0 1px @virtusize_blue;
   border-left: 4px solid rgba(255, 255, 255, 1);
 
   &.inline {
@@ -252,7 +252,7 @@ export default {
   }
 
   &.focused {
-    border-left: 4px solid #16C6B9;
+    border-left: 4px solid @virtusize_blue;
     transition: .3s;
 
     label {

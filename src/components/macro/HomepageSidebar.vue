@@ -230,8 +230,8 @@ export default {
             height: 46px;
             margin: 1px;
             border-radius: 50%;
-            border: 5px solid #16C6B9;
-            border-color: #16C6B9 transparent #16C6B9 transparent;
+            border: 5px solid @virtusize_blue;
+            border-color: @virtusize_blue transparent @virtusize_blue transparent;
             animation: lds-dual-ring 1.2s linear infinite;
           }
           

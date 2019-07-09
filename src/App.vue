@@ -32,6 +32,8 @@ html, body {
   font-family: 'Lato', sans-serif;
 }
 
+@avar: blue;
+
 #app {
   width: 100%;
   height: 100%;

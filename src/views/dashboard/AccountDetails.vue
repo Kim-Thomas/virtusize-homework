@@ -3,7 +3,9 @@
 
     <div class="account-hero">
       <div class="save-user-btn-container" v-if="saveable">
-        <VirtusizeBtn btn-class="btn btn--big" label="Save Modifications" v-on:click.native="saveUser()"/>
+        <VirtusizeBtn btn-class="btn btn--big" 
+          label="Save Modifications" 
+          v-on:click.native="saveUser()"/>
       </div>
       <UserPortrait :email="user.email"/>
     </div>
@@ -19,8 +21,17 @@
           <font-awesome-icon icon="pen" v-on:click="toggleEditingMode('editing_fullname')"/>
         </div>
         <div class="edition-area" v-if="editing_fullname">
-          <VirtusizeInput label="First Name" size="medium" v-model="user.first_name" :inline="true" :focused="true" :validity="firstNameIsValid"/>
-          <VirtusizeInput label="Last Name" size="medium" v-model="user.last_name" :inline="true" :focused="true" :validity="lastNameIsValid"/>
+          <VirtusizeInput label="First Name" 
+            size="medium" v-model="user.first_name" 
+            :inline="true" 
+            :focused="true" 
+            :validity="firstNameIsValid"/>
+          <VirtusizeInput label="Last Name" 
+            size="medium" 
+            v-model="user.last_name" 
+            :inline="true" 
+            :focused="true" 
+            :validity="lastNameIsValid"/>
         </div>
       </div>
 
@@ -33,7 +44,11 @@
           <font-awesome-icon icon="pen" v-on:click="toggleEditingMode('editing_email')"/>
         </div>
         <div class="edition-area" v-if="editing_email">
-          <VirtusizeInput label="Email Address" size="medium" v-model="user.email" :focused="true" :validity="emailIsValid"/>
+          <VirtusizeInput label="Email Address" 
+            size="medium" 
+            v-model="user.email" 
+            :focused="true" 
+            :validity="emailIsValid"/>
         </div>
       </div>
 
@@ -43,10 +58,25 @@
 
       <div class="change-password-container">
         <form class="edition-area">
-          <VirtusizeInput label="Current Password" type="password" size="medium" v-model="current_password" :inline="true" :password-visibility="true"/>
-          <VirtusizeInput label="New Password" type="password" size="medium" v-model="new_password" :inline="true" :password-strength="true" :strength="newPasswordStrength" :password-visibility="true"/>
+          <VirtusizeInput label="Current Password" 
+            type="password" 
+            size="medium" 
+            v-model="current_password" 
+            :inline="true" 
+            :password-visibility="true"/>
+          <VirtusizeInput label="New Password" 
+            type="password" 
+            size="medium" 
+            v-model="new_password" 
+            :inline="true" 
+            :password-strength="true" 
+            :strength="newPasswordStrength" 
+            :password-visibility="true"/>
         </form>
-        <VirtusizeBtn btn-class="btn btn--big" label="Change Password" v-on:click.native="changePassword()" v-if="passwordIsChangeable"/>
+        <VirtusizeBtn btn-class="btn btn--big" 
+          label="Change Password" 
+          v-on:click.native="changePassword()" 
+          v-if="passwordIsChangeable"/>
       </div>
       
     </div>

@@ -1,4 +1,3 @@
-
 <template>
   <div class="fullpage-container page-loader">
     <svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" class="animated-svg">
@@ -13,36 +12,45 @@
 export default {
   name: 'page-loader',
   methods: {
+    /**
+     * Animate the Virtusize Logo.
+     */
     animateLogo() {
       let $paths = $('.animated-svg path');
       let $inner_v = $('.animated-svg .inner-v');
       let $outer_v = $('.animated-svg .outer-v');
+
       $outer_v.css('transform', 'translateY(50px');
       $inner_v.css('transform', 'translateY(-50px');
+
       $paths.each(function(index, $path) {
+
         let length = $path.getTotalLength();
+
         $($path).css('fill-opacity', 0);
-        // Clear any previous transition
+
         $path.style.transition = $path.style.WebkitTransition = 'none';
-        // Set up the starting positions
         $path.style.strokeDasharray = length + ' ' + length;
         $path.style.strokeDashoffset = length;
-        // Trigger a layout so styles are calculated & the browser
-        // picks up the starting position before animating
+
         $path.getBoundingClientRect();
-        // Define our transition
         $path.style.transition = $path.style.WebkitTransition = 'transform 2s ease-in-out, stroke-dashoffset 2s ease-in-out';
-        // Go!
         $path.style.strokeDashoffset = '0';
 
         setTimeout(function() {
           $($path).css('transform', 'translateY(0)');
         }, 300);
+
         setTimeout(function() {
           $($path).animate({'fill-opacity': 1}, 500);
         }, 2000);
-      });      
+
+      });     
+
     },
+    /**
+     * Hides the page loader.
+     */
     hidePageLoader() {
       $('.page-loader').fadeOut();
     }
@@ -52,6 +60,7 @@ export default {
 
     app.animateLogo();
 
+    // Note: On pageIsLoaded event, hides the page loader.
     app.$root.$on('pageIsLoaded', function() {
       app.hidePageLoader();
     });

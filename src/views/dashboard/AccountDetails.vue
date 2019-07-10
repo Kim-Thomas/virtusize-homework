@@ -83,7 +83,8 @@
             size="medium"
             v-model="current_password"
             :inline="true"
-            :password-visibility="true"/>
+            :password-visibility="true"
+            :validity="currentPasswordIsValid"/>
           <VirtusizeInput label="New Password"
             type="password"
             size="medium"
@@ -171,6 +172,17 @@ export default {
     lastNameIsValid: function () {
       let last_name = this.user.last_name
       if (last_name.length > 1 && last_name.length < 20) {
+        return 'valid'
+      } else {
+        return 'invalid'
+      }
+    },
+    /**
+     * Checks the validity of user's current password.
+     */
+    currentPasswordIsValid: function () {
+      let current_password = this.current_password
+      if (current_password.length >= 1) {
         return 'valid'
       } else {
         return 'invalid'

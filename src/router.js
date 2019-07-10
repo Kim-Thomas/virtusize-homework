@@ -19,7 +19,6 @@ export default new Router({
     },
     {
       path: '/dashboard',
-      name: 'dashboard',
       component: Dashboard,
       children: [
         {
@@ -29,14 +28,17 @@ export default new Router({
         },
         {
           path: 'account-details',
+          name: 'dashboard-account-details',
           component: DashboardAccountDetails
         },
         {
           path: 'my-wardrobe',
+          name: 'dashboard-wardrobe',
           component: DashboardWardrobe
         },
         {
           path: 'about',
+          name: 'dashboard-about',
           component: DashboardAbout
         }
       ]

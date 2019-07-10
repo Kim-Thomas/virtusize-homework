@@ -40,6 +40,7 @@ You can also check the *remember me* checkbox to create a session.
 ### Editing the account
 
 #### Changing user's full name
+---
 To change the user's name, click on the **little blue pen** next to the user's full name, then edit the first name and last name, **both must not be empty**.
 
 After you are done with your modifications, click on the "Save Modifications" button at the top of the page.
@@ -47,6 +48,7 @@ After you are done with your modifications, click on the "Save Modifications" bu
 ![Editing User's full name](https://thomaskim.fr/public_assets/editing-user-fullname.gif)
 
 #### Changing user's email / gravatar
+---
 To change the user's portrait, you need to change its email.
 
 The user portrait is directly linked to Gravatar, so you need to make sure that this email corresponds to a Gravatar account.
@@ -56,7 +58,7 @@ To edit the email, click on the **little blue pen** next to the user's email. If
 ![Editing User's Email](https://thomaskim.fr/public_assets/editing-user-email.gif)
 
 #### Changing user's password
-
+---
 In order to change the user password, start by entering **any password** ( longer than 1 character ) in the *Current Password* field.
 
 Then add a new password in the *New Password* field, **it must obtain a ZXCVBN score superior or equal to 3**.

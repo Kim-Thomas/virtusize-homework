@@ -23,7 +23,9 @@
             <span v-if="userFullname.length === 1">Undefined</span>
             {{userFullname}}
           </div>
-          <font-awesome-icon icon="pen" v-on:click="toggleEditingMode('editing_fullname')"/>
+          <button v-on:click="toggleEditingMode('editing_fullname')">
+            <font-awesome-icon icon="pen" />
+          </button>
         </div>
 
         <form class="edition-area" v-if="editing_fullname">
@@ -51,7 +53,9 @@
             <span v-if="user.email.length === 0">Undefined</span>
             {{user.email}}
           </div>
-          <font-awesome-icon icon="pen" v-on:click="toggleEditingMode('editing_email')"/>
+          <button v-on:click="toggleEditingMode('editing_email')">
+            <font-awesome-icon icon="pen" />
+          </button>
         </div>
 
         <form class="edition-area" v-if="editing_email">
@@ -344,16 +348,24 @@ export default {
       position: relative;
       display: inline-block;
 
-      svg {
+      button {
         position: absolute;
+        top: 5px;
+        right: -20px;
+        display: inline-block;
+        font-size: 1em;
+        background: none;
+        border: none;
         transform: scale(.7);
-        top: 0;
-        right: -40px;
-        color: @virtusize_blue;
-        cursor: pointer;
 
-        &:hover {
-          transform: scale(.7) rotate(-20deg);
+        svg {
+          position: absolute;
+          color: @virtusize_blue;
+          cursor: pointer;
+
+          &:hover {
+            transform: rotate(-20deg);
+          }
         }
       }
     }
@@ -380,6 +392,7 @@ export default {
       margin-top: 10px;
 
       .editable-data {
+
         .data {
           opacity: .6;
         }

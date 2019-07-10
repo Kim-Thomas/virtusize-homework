@@ -26,9 +26,8 @@ export default {
         .then(function (result) {
           app.$router.push({ path: 'dashboard' })
         }, function (err) {
-          error.log(err)
-        }
-        )
+          console.error(err)
+        })
     }
   }
 }

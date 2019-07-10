@@ -242,9 +242,8 @@ export default {
           app.editing_email = false
           app.$toasted.success('User Saved')
         }, function (err) {
-          error.log(err)
-        }
-        )
+          console.error(err)
+        })
     },
     /**
      * Updates User Password
@@ -263,9 +262,8 @@ export default {
           })
           app.$toasted.success('Password Updated')
         }, function (err) {
-          error.log(err)
-        }
-        )
+          console.error(err)
+        })
     }
   }
 }

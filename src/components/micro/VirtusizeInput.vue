@@ -199,6 +199,7 @@ export default {
   label {
     font-size: 16px;
     position: absolute;
+    z-index: 9;
     font-weight: 600;
     top: 26px;
     left: 15px;

@@ -15,7 +15,8 @@ Properties:
 -->
 
 <template>
-  <div class="virtusize-input-group" :class="groupClasses">
+  <div class="virtusize-input-group" :class="groupClasses"
+    :data-strength="passwordStrength ? strength : false">
 
     <label :for="uniqueId">{{label}}</label>
 
@@ -276,6 +277,26 @@ export default {
 
   &.invalid {
     border-left: 4px solid #e74c3c;
+  }
+
+  &[data-strength='0'] {
+    border-left: 4px solid #c0392b;
+  }
+
+  &[data-strength='1'] {
+    border-left: 4px solid #e74c3c;
+  }
+
+  &[data-strength='2'] {
+    border-left: 4px solid #e67e22;
+  }
+
+  &[data-strength='3'] {
+    border-left: 4px solid #f1c40f;
+  }
+
+  &[data-strength='4'] {
+    border-left: 4px solid #27ae60;
   }
 }
 </style>

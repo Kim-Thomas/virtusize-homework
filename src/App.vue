@@ -28,7 +28,7 @@ html, body {
   margin: 0;
   width: 100%;
   height: 100%;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 @avar: blue;

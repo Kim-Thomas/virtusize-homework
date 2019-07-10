@@ -41,7 +41,7 @@ You can also check the *remember me* checkbox to create a session.
 
 #### Changing user's full name
 ---
-To change the user's name, click on the **little blue pen** next to the user's full name, then edit the first name and last name, **both must not be empty**.
+To change the user's full name, click on the **little blue pen** next to the user's full name, then edit the first name and last name, **both must not be empty**.
 
 After you are done with your modifications, click on the "Save Modifications" button at the top of the page.
 
@@ -81,6 +81,7 @@ This homework was made with:
 - VueX ( store )
 - Vue-router ( router )
 - Vue-test-utils ( unit tests )
+- ESLint ( linter )
 - zxcvbn ( password strength )
 - Vue-toasted ( toast notifications )
 - Font-awesome ( icons )

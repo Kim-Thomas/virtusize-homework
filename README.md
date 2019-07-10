@@ -21,6 +21,11 @@ npm run build
 npm run test:unit
 ```
 
+### Lint code
+```
+npm run lint
+```
+
 ## Usage
 
 ### Logging-in

@@ -20,7 +20,7 @@
 
         <div class="editable-data">
           <div class="data">
-            <span v-if="userFullname.length == 1">Undefined</span>
+            <span v-if="userFullname.length === 1">Undefined</span>
             {{userFullname}}
           </div>
           <font-awesome-icon icon="pen" v-on:click="toggleEditingMode('editing_fullname')"/>
@@ -48,7 +48,7 @@
 
         <div class="editable-data">
           <div class="data">
-            <span v-if="user.email.length == 0">Undefined</span>
+            <span v-if="user.email.length === 0">Undefined</span>
             {{user.email}}
           </div>
           <font-awesome-icon icon="pen" v-on:click="toggleEditingMode('editing_email')"/>
@@ -182,7 +182,7 @@ export default {
      * - Checks that data is valid.
      */
     saveable: function () {
-      if (this.edited && this.emailIsValid == 'valid' && this.firstNameIsValid == 'valid' && this.lastNameIsValid == 'valid') {
+      if (this.edited && this.emailIsValid === 'valid' && this.firstNameIsValid === 'valid' && this.lastNameIsValid === 'valid') {
         return true
       }
       return false

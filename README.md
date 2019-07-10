@@ -89,3 +89,5 @@ This homework was made with:
 - Vue-svg-loader ( loading of svg files )
 - Less ( CSS Precompiler )
 - Babel ( Polyfills )
+
+All the CSS has been hand-written by me without the use of any framework. The UI was also 100% designed by myself.

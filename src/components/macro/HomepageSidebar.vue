@@ -188,7 +188,7 @@ export default {
 
       .form-label {
         font-size: 1em;
-        opacity: .4;
+        opacity: .6;
         //font-weight: 600;
         margin-bottom: 3em;
       }

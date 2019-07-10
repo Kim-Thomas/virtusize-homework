@@ -4,8 +4,6 @@
 </template>
 
 <script>
-import { setTimeout } from 'timers'
-
 let md5 = require('md5')
 let default_image_url = 'https://hitberry.com//uploads/2018/04/15/haruki-murakami-1523791076.jpg'
 

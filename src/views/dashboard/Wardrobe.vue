@@ -1,6 +1,6 @@
 <template>
   <div class="wardrobe">
-    <img :src="Monitor" class="placeholder-image">
+    <img :src="Monitor" class="placeholder-image" alt="Placeholder image for Wardrobe page.">
     <h1 class="placeholder-title">Working on it...</h1>
   </div>
 </template>

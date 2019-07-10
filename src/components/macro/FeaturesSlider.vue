@@ -5,7 +5,7 @@
       :key="index"
       v-bind:class="{ active: isActive(index) }"
       :style="'transform: translateX(-'+offset_left+'px)'">
-      <img :src="feature.illustration" class="feature__illustration">
+      <img :src="feature.illustration" class="feature__illustration" :alt="feature.title">
       <h3 class="feature__title">
         {{feature.title}}
       </h3>

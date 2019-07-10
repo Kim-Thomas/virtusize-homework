@@ -377,7 +377,7 @@ export default {
 
     .user-email {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 10px;
 
       .editable-data {
         .data {

@@ -102,7 +102,8 @@ export default {
     groupClasses: function () {
       let app = this
       let classes = ''
-      if (app.focused) {
+      if (app.focused || 
+        $('#' + app.uniqueId).parent('.virtusize-input-group').hasClass('focused')) {
         classes += 'focused '
       }
       if (app.inline) {
@@ -273,30 +274,30 @@ export default {
         opacity: .8;
       }
     }
-  }
 
-  &.invalid {
-    border-left: 4px solid #e74c3c;
-  }
+    &.invalid {
+      border-left: 4px solid #e74c3c;
+    }
 
-  &[data-strength='0'] {
-    border-left: 4px solid #c0392b;
-  }
+    &[data-strength='0'] {
+      border-left: 4px solid #c0392b;
+    }
 
-  &[data-strength='1'] {
-    border-left: 4px solid #e74c3c;
-  }
+    &[data-strength='1'] {
+      border-left: 4px solid #e74c3c;
+    }
 
-  &[data-strength='2'] {
-    border-left: 4px solid #e67e22;
-  }
+    &[data-strength='2'] {
+      border-left: 4px solid #e67e22;
+    }
 
-  &[data-strength='3'] {
-    border-left: 4px solid #f1c40f;
-  }
+    &[data-strength='3'] {
+      border-left: 4px solid #f1c40f;
+    }
 
-  &[data-strength='4'] {
-    border-left: 4px solid #27ae60;
+    &[data-strength='4'] {
+      border-left: 4px solid #27ae60;
+    }
   }
 }
 </style>

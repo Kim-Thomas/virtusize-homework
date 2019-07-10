@@ -41,8 +41,6 @@ Properties:
 import PasswordStrengthMeter from '@/components/micro/PasswordStrengthMeter.vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-let zxcvbn = require('zxcvbn')
-
 export default {
   props: {
     value: {

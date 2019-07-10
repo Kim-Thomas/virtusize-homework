@@ -13,7 +13,7 @@
       {{strengthLabel}}
     </div>
 
-  </div>  
+  </div>
 </template>
 
 <script>
@@ -28,23 +28,23 @@ export default {
     /**
      * Returns a textual interpretation of the current ZXCVBN score
      */
-    strengthLabel: function() {
-      switch(this.strength) {
+    strengthLabel: function () {
+      switch (this.strength) {
         case 0:
           return 'Very weak'
-          break;
+          break
         case 1:
           return 'Weak'
-          break;
+          break
         case 2:
           return 'Insufficient'
-          break;
+          break
         case 3:
           return 'Good'
-          break;
+          break
         case 4:
           return 'Strong'
-          break;
+          break
       }
     }
   },
@@ -54,11 +54,11 @@ export default {
      * Parameters:
      * - (Int) index : the dot index.
      */
-    isActive: function(index) {
-      if(index <= this.strength) {
-        return 'active';
+    isActive: function (index) {
+      if (index <= this.strength) {
+        return 'active'
       } else {
-        return '';
+        return ''
       }
     }
   }

@@ -1,8 +1,7 @@
 import { shallowMount } from '@vue/test-utils'
 import PasswordStrengthMeter from '@/components/micro/PasswordStrengthMeter.vue'
 
-window.$ = window.jQuery = require('jquery');
-
+window.$ = window.jQuery = require('jquery')
 
 describe('PasswordStrengthMeter.vue', () => {
   it('renders without any props', () => {
@@ -14,7 +13,7 @@ describe('PasswordStrengthMeter.vue', () => {
       propsData: {
         strength: 2
       }
-    });
+    })
 
     expect(wrapper.find('.meter').attributes('data-strength')).toBe('2')
   })
@@ -24,9 +23,9 @@ describe('PasswordStrengthMeter.vue', () => {
       propsData: {
         strength: 0
       }
-    });
+    })
     expect(wrapper.find('.label').text()).toBe('Very weak')
-    wrapper.setProps({strength: 1})
+    wrapper.setProps({ strength: 1 })
     expect(wrapper.find('.label').text()).toBe('Weak')
     wrapper.setProps({ strength: 2 })
     expect(wrapper.find('.label').text()).toBe('Insufficient')
@@ -41,7 +40,7 @@ describe('PasswordStrengthMeter.vue', () => {
       propsData: {
         strength: 2
       }
-    });
+    })
     expect(wrapper.vm.isActive(0)).toBe('active')
     expect(wrapper.vm.isActive(3)).toBe('')
   })

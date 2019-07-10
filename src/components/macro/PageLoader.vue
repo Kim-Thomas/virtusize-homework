@@ -17,55 +17,52 @@ export default {
     /**
      * Animate the Virtusize Logo.
      */
-    animateLogo: function() {
-      let $paths = $('.animated-svg path');
-      let $inner_v = $('.animated-svg .inner-v');
-      let $outer_v = $('.animated-svg .outer-v');
+    animateLogo: function () {
+      let $paths = $('.animated-svg path')
+      let $inner_v = $('.animated-svg .inner-v')
+      let $outer_v = $('.animated-svg .outer-v')
 
-      $outer_v.css('transform', 'translateY(50px');
-      $inner_v.css('transform', 'translateY(-50px');
+      $outer_v.css('transform', 'translateY(50px')
+      $inner_v.css('transform', 'translateY(-50px')
 
-      $paths.each(function(index, $path) {
+      $paths.each(function (index, $path) {
+        let length = $path.getTotalLength()
 
-        let length = $path.getTotalLength();
+        $($path).css('fill-opacity', 0)
 
-        $($path).css('fill-opacity', 0);
+        $path.style.transition = $path.style.WebkitTransition = 'none'
+        $path.style.strokeDasharray = length + ' ' + length
+        $path.style.strokeDashoffset = length
 
-        $path.style.transition = $path.style.WebkitTransition = 'none';
-        $path.style.strokeDasharray = length + ' ' + length;
-        $path.style.strokeDashoffset = length;
+        $path.getBoundingClientRect()
+        $path.style.transition = $path.style.WebkitTransition = 'transform 2s ease-in-out, stroke-dashoffset 2s ease-in-out'
+        $path.style.strokeDashoffset = '0'
 
-        $path.getBoundingClientRect();
-        $path.style.transition = $path.style.WebkitTransition = 'transform 2s ease-in-out, stroke-dashoffset 2s ease-in-out';
-        $path.style.strokeDashoffset = '0';
+        setTimeout(function () {
+          $($path).css('transform', 'translateY(0)')
+        }, 300)
 
-        setTimeout(function() {
-          $($path).css('transform', 'translateY(0)');
-        }, 300);
-
-        setTimeout(function() {
-          $($path).animate({'fill-opacity': 1}, 500);
-        }, 2000);
-
-      });     
-
+        setTimeout(function () {
+          $($path).animate({ 'fill-opacity': 1 }, 500)
+        }, 2000)
+      })
     },
     /**
      * Hides the page loader.
      */
-    hidePageLoader: function() {
-      $('.page-loader').fadeOut();
+    hidePageLoader: function () {
+      $('.page-loader').fadeOut()
     }
   },
-  mounted: function() {
-    let app = this;
+  mounted: function () {
+    let app = this
 
-    app.animateLogo();
+    app.animateLogo()
 
     // Note: On pageIsLoaded event, hides the page loader.
-    app.$root.$on('pageIsLoaded', function() {
-      app.hidePageLoader();
-    });
+    app.$root.$on('pageIsLoaded', function () {
+      app.hidePageLoader()
+    })
   }
 }
 </script>

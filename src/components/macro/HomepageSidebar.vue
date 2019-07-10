@@ -18,20 +18,20 @@
           <div class="processing-form-overlay" v-if="processing_signin">
             <div class="lds-dual-ring"></div>
           </div>
-          <VirtusizeInput label="Email Address" 
+          <VirtusizeInput label="Email Address"
             v-model="signin.email"/>
-          <VirtusizeInput label="Password" 
-            type="password" 
+          <VirtusizeInput label="Password"
+            type="password"
             v-model="signin.password"/>
         </form>
-        <input type="checkbox" name="remember-me" id="remember-me" v-model="signin.remember"> 
+        <input type="checkbox" name="remember-me" id="remember-me" v-model="signin.remember">
         <label for="remember-me" class="checkbox-label">Remember Me</label>
         <div class="actions">
-          <VirtusizeBtn btn-class="btn btn--big" 
-            label="Log in" 
+          <VirtusizeBtn btn-class="btn btn--big"
+            label="Log in"
             v-on:click.native="tryLogIn()"/>
-          <VirtusizeBtn btn-class="btn btn--big btn--ghost" 
-            label="Sign up" 
+          <VirtusizeBtn btn-class="btn btn--big btn--ghost"
+            label="Sign up"
             v-on:click.native="changePanel('signup')"/>
         </div>
       </div>
@@ -42,20 +42,20 @@
         <h2 class="tagline">Online Clothes Shopping Made Easy</h2>
         <div class="form-label">Thank you for your interest in Virtusize, please create an account to continue.</div>
         <form class="signup-form">
-          <VirtusizeInput label="Email Address" 
+          <VirtusizeInput label="Email Address"
             v-model="signup.email"/>
-          <VirtusizeInput label="Password" 
-            type="password" 
+          <VirtusizeInput label="Password"
+            type="password"
             v-model="signup.password"/>
-          <VirtusizeInput label="Password" 
-            type="password" 
+          <VirtusizeInput label="Password"
+            type="password"
             v-model="signup.password_b"/>
         </form>
         <div class="actions">
-          <VirtusizeBtn btn-class="btn btn--big" 
+          <VirtusizeBtn btn-class="btn btn--big"
             label="Sign up"/>
-          <VirtusizeBtn btn-class="btn btn--big btn--ghost" 
-            label="Log in" 
+          <VirtusizeBtn btn-class="btn btn--big btn--ghost"
+            label="Log in"
             v-on:click.native="changePanel('signin')"/>
         </div>
       </div>
@@ -71,18 +71,18 @@
 </template>
 
 <script>
-import VirtusizeInput from '@/components/micro/VirtusizeInput.vue';
-import VirtusizeBtn from '@/components/micro/VirtusizeButton.vue';
+import VirtusizeInput from '@/components/micro/VirtusizeInput.vue'
+import VirtusizeBtn from '@/components/micro/VirtusizeButton.vue'
 
-import LogoWithText from '@/assets/brand/logo-w-text.svg';
-import { setTimeout } from 'timers';
+import LogoWithText from '@/assets/brand/logo-w-text.svg'
+import { setTimeout } from 'timers'
 
 export default {
   components: {
     VirtusizeInput,
     VirtusizeBtn
   },
-  data: function() {
+  data: function () {
     return {
       current_panel: 'signin',
       processing_signin: false,
@@ -100,7 +100,7 @@ export default {
     }
   },
   computed: {
-    LogoWithText: function() { return LogoWithText }
+    LogoWithText: function () { return LogoWithText }
   },
   methods: {
     /**
@@ -108,30 +108,30 @@ export default {
      * Parameters:
      * - (String) new_panel : signing || signup
      */
-    changePanel: function(new_panel) {
-      this.current_panel = new_panel;
+    changePanel: function (new_panel) {
+      this.current_panel = new_panel
     },
     /**
      * Dispatch a store action to try to login, if successful, redirects to the dashboard. If not, displays an error.
      */
-    tryLogIn: function() {
-      let app = this;
-      app.processing_signin = true;
-      app.$store.dispatch("tryLogin", {
-          email: app.signin.email, 
-          password: app.signin.password,
-          remember: app.signin.remember
-        })
-        .then(function(result) {
-          app.processing_signin = false;
+    tryLogIn: function () {
+      let app = this
+      app.processing_signin = true
+      app.$store.dispatch('tryLogin', {
+        email: app.signin.email,
+        password: app.signin.password,
+        remember: app.signin.remember
+      })
+        .then(function (result) {
+          app.processing_signin = false
           app.$router.push({ path: 'dashboard' })
-        }, function(err) {
-          app.processing_signin = false;
-          app.signing_error = err;
-          setTimeout(function() {
-            app.signing_error = false;
+        }, function (err) {
+          app.processing_signin = false
+          app.signing_error = err
+          setTimeout(function () {
+            app.signing_error = false
           }, 5000)
-        });
+        })
     }
   }
 }
@@ -144,7 +144,7 @@ export default {
   display: flex;
   align-items: center;
   z-index: 9;
-  
+
   .site-branding {
     position: absolute;
     top: 30px;
@@ -234,7 +234,7 @@ export default {
             border-color: @virtusize_blue transparent @virtusize_blue transparent;
             animation: lds-dual-ring 1.2s linear infinite;
           }
-          
+
           @keyframes lds-dual-ring {
             0% {
               transform: rotate(0deg);
@@ -273,4 +273,3 @@ export default {
   }
 }
 </style>
-

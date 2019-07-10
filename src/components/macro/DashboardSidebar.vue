@@ -35,12 +35,12 @@
       </ul>
     </div>
 
-  </div>  
+  </div>
 </template>
 
 <script>
-import LogoWithText from '@/assets/brand/logo-w-text.svg';
-import LogoWithoutText from '@/assets/brand/logo.svg';
+import LogoWithText from '@/assets/brand/logo-w-text.svg'
+import LogoWithoutText from '@/assets/brand/logo.svg'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -49,8 +49,8 @@ export default {
     FontAwesomeIcon
   },
   computed: {
-    LogoWithText: function() { return LogoWithText },
-    LogoWithoutText: function() { return LogoWithoutText }
+    LogoWithText: function () { return LogoWithText },
+    LogoWithoutText: function () { return LogoWithoutText }
   },
   methods: {
     /**
@@ -58,14 +58,14 @@ export default {
      * - Dispatch a store action.
      * - Redirects to homepage.
      */
-    logOut: function() {
-      let app = this;
+    logOut: function () {
+      let app = this
       this.$store.dispatch('logOut')
-        .then(function(result) {
+        .then(function (result) {
           app.$router.push({ path: '/' })
-        });
+        })
     }
-  },
+  }
 }
 </script>
 
@@ -77,7 +77,7 @@ export default {
   display: flex;
   align-items: center;
   z-index: 9;
-  
+
   .site-branding {
     position: absolute;
     top: 30px;
@@ -133,7 +133,7 @@ export default {
       padding: 0;
       margin: 0;
 
-      li {          
+      li {
         position: relative;
         list-style: none;
 
@@ -159,7 +159,7 @@ export default {
               height: 100%;
               width: 4px;
               background: rgba(22, 198, 186, 0.3);
-            }   
+            }
           }
 
           &.router-link-active {

@@ -10,7 +10,7 @@ Properties:
 <template>
   <a :href="to" :class="btnClass">
     {{label}}
-  </a>  
+  </a>
 </template>
 
 <script>

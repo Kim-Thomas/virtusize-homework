@@ -34,10 +34,10 @@ it('tryLogin action is working.', async () => {
 
   await store.dispatch('tryLogin', correct_logs)
 
-  expect(store.state.user).toEqual({ 
-    "_id": 267, 
-    "email": "haruki@murakami.com", 
-    "first_name": "Haruki", 
-    "last_name": "Murakami" 
+  expect(store.state.user).toEqual({
+    '_id': 267,
+    'email': 'haruki@murakami.com',
+    'first_name': 'Haruki',
+    'last_name': 'Murakami'
   })
 })

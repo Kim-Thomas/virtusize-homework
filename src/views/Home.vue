@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import HomepageSidebar from '@/components/macro/HomepageSidebar.vue';
-import FeaturesSlider from '@/components/macro/FeaturesSlider.vue';
+import HomepageSidebar from '@/components/macro/HomepageSidebar.vue'
+import FeaturesSlider from '@/components/macro/FeaturesSlider.vue'
 
 export default {
   name: 'home',
@@ -17,18 +17,18 @@ export default {
     HomepageSidebar,
     FeaturesSlider
   },
-  created: function() {
-    let app = this;
+  created: function () {
+    let app = this
 
     // If there is a session, automatically log-in the user.
-    if(sessionStorage.getItem('session_user') && JSON.parse(sessionStorage.getItem('session_user'))) {
+    if (sessionStorage.getItem('session_user') && JSON.parse(sessionStorage.getItem('session_user'))) {
       this.$store.dispatch('updateUser', JSON.parse(sessionStorage.getItem('session_user')))
-        .then(function(result) {
-            app.$router.push({ path: 'dashboard' })
-          }, function(err) {
-            error.log(err);
-          }
-        );
+        .then(function (result) {
+          app.$router.push({ path: 'dashboard' })
+        }, function (err) {
+          error.log(err)
+        }
+        )
     }
   }
 }
@@ -61,4 +61,3 @@ export default {
   }
 }
 </style>
-

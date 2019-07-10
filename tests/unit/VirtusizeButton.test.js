@@ -1,8 +1,7 @@
 import { shallowMount } from '@vue/test-utils'
 import VirtusizeButton from '@/components/micro/VirtusizeButton.vue'
 
-window.$ = window.jQuery = require('jquery');
-
+window.$ = window.jQuery = require('jquery')
 
 describe('VirtusizeButton.vue', () => {
   it('renders without any props', () => {
@@ -35,5 +34,4 @@ describe('VirtusizeButton.vue', () => {
     })
     expect(wrapper.find('a').attributes('href')).toBe('https://google.fr')
   })
-
 })

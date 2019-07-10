@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils'
 import VirtusizeInput from '@/components/micro/VirtusizeInput.vue'
 
-window.$ = window.jQuery = require('jquery');
+window.$ = window.jQuery = require('jquery')
 
 describe('VirtusizeInput.vue', () => {
   it('renders without any props', () => {
@@ -10,11 +10,11 @@ describe('VirtusizeInput.vue', () => {
 
   it('prop "type" is working', () => {
     const wrapper = shallowMount(VirtusizeInput, {
-      propsData: { 
+      propsData: {
         type: 'password'
       }
     })
-    expect(wrapper.html()).toContain('type="password"');
+    expect(wrapper.html()).toContain('type="password"')
   })
 
   it('prop "size" is working', () => {
@@ -61,8 +61,7 @@ describe('VirtusizeInput.vue', () => {
 
   it('method "makeid" is working', () => {
     const wrapper = shallowMount(VirtusizeInput)
-    const id = wrapper.vm.makeid();
+    const id = wrapper.vm.makeid()
     expect(id).toMatch(/[a-zA-Z]{5}/)
   })
-  
 })

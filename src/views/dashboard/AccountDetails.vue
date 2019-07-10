@@ -4,8 +4,8 @@
     <!-- Account Hero -->
     <div class="account-hero">
       <div class="save-user-btn-container" v-if="saveable">
-        <VirtusizeBtn btn-class="btn btn--big" 
-          label="Save Modifications" 
+        <VirtusizeBtn btn-class="btn btn--big"
+          label="Save Modifications"
           v-on:click.native="saveUser()"/>
       </div>
       <UserPortrait :email="user.email"/>
@@ -27,16 +27,16 @@
         </div>
 
         <div class="edition-area" v-if="editing_fullname">
-          <VirtusizeInput label="First Name" 
-            size="medium" v-model="user.first_name" 
-            :inline="true" 
-            :focused="true" 
+          <VirtusizeInput label="First Name"
+            size="medium" v-model="user.first_name"
+            :inline="true"
+            :focused="true"
             :validity="firstNameIsValid"/>
-          <VirtusizeInput label="Last Name" 
-            size="medium" 
-            v-model="user.last_name" 
-            :inline="true" 
-            :focused="true" 
+          <VirtusizeInput label="Last Name"
+            size="medium"
+            v-model="user.last_name"
+            :inline="true"
+            :focused="true"
             :validity="lastNameIsValid"/>
         </div>
 
@@ -55,10 +55,10 @@
         </div>
 
         <div class="edition-area" v-if="editing_email">
-          <VirtusizeInput label="Email Address" 
-            size="medium" 
-            v-model="user.email" 
-            :focused="true" 
+          <VirtusizeInput label="Email Address"
+            size="medium"
+            v-model="user.email"
+            :focused="true"
             :validity="emailIsValid"/>
         </div>
 
@@ -78,30 +78,30 @@
       <div class="change-password-container">
 
         <form class="edition-area">
-          <VirtusizeInput label="Current Password" 
-            type="password" 
-            size="medium" 
-            v-model="current_password" 
-            :inline="true" 
+          <VirtusizeInput label="Current Password"
+            type="password"
+            size="medium"
+            v-model="current_password"
+            :inline="true"
             :password-visibility="true"/>
-          <VirtusizeInput label="New Password" 
-            type="password" 
-            size="medium" 
-            v-model="new_password" 
-            :inline="true" 
-            :password-strength="true" 
-            :strength="newPasswordStrength" 
+          <VirtusizeInput label="New Password"
+            type="password"
+            size="medium"
+            v-model="new_password"
+            :inline="true"
+            :password-strength="true"
+            :strength="newPasswordStrength"
             :password-visibility="true"/>
         </form>
 
-        <VirtusizeBtn btn-class="btn btn--big" 
-          label="Change Password" 
-          v-on:click.native="changePassword()" 
+        <VirtusizeBtn btn-class="btn btn--big"
+          label="Change Password"
+          v-on:click.native="changePassword()"
           v-if="passwordIsChangeable"/>
 
       </div>
       <!-- !Change Password Section -->
-      
+
     </div>
     <!-- !Main Container -->
 
@@ -109,14 +109,14 @@
 </template>
 
 <script>
-import VirtusizeInput from '@/components/micro/VirtusizeInput.vue';
-import VirtusizeBtn from '@/components/micro/VirtusizeButton.vue';
-import UserPortrait from '@/components/micro/UserPortrait.vue';
+import VirtusizeInput from '@/components/micro/VirtusizeInput.vue'
+import VirtusizeBtn from '@/components/micro/VirtusizeButton.vue'
+import UserPortrait from '@/components/micro/UserPortrait.vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-import { setTimeout } from 'timers';
+import { setTimeout } from 'timers'
 
-let zxcvbn = require('zxcvbn'); 
+let zxcvbn = require('zxcvbn')
 
 export default {
   components: {
@@ -125,7 +125,7 @@ export default {
     UserPortrait,
     FontAwesomeIcon
   },
-  data: function() {
+  data: function () {
     return {
       edited: false,
       user: JSON.parse(JSON.stringify(this.$store.state.user.user)),
@@ -139,41 +139,41 @@ export default {
     /**
      * Returns the User fullname.
      */
-    userFullname: function() {
-      return this.user.first_name + ' ' + this.user.last_name;
+    userFullname: function () {
+      return this.user.first_name + ' ' + this.user.last_name
     },
     /**
      * Checks the validity of user's email.
      */
-    emailIsValid: function() {
-      let email = this.user.email;
-      let regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      if(regex.test(String(email).toLowerCase())) {
-        return 'valid';
+    emailIsValid: function () {
+      let email = this.user.email
+      let regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      if (regex.test(String(email).toLowerCase())) {
+        return 'valid'
       } else {
-        return 'invalid';
+        return 'invalid'
       }
     },
     /**
      * Checks the validity of user's first name.
      */
-    firstNameIsValid: function() {
-      let first_name = this.user.first_name;
-      if(first_name.length > 1 && first_name.length < 20) {
-        return 'valid';
+    firstNameIsValid: function () {
+      let first_name = this.user.first_name
+      if (first_name.length > 1 && first_name.length < 20) {
+        return 'valid'
       } else {
-        return 'invalid';
+        return 'invalid'
       }
     },
     /**
      * Checks the validity of user's last name.
      */
-    lastNameIsValid: function() {
-      let last_name = this.user.last_name;
-      if(last_name.length > 1 && last_name.length < 20) {
-        return 'valid';
+    lastNameIsValid: function () {
+      let last_name = this.user.last_name
+      if (last_name.length > 1 && last_name.length < 20) {
+        return 'valid'
       } else {
-        return 'invalid';
+        return 'invalid'
       }
     },
     /**
@@ -181,30 +181,30 @@ export default {
      * - Checks that there has been changes made.
      * - Checks that data is valid.
      */
-    saveable: function() {
-      if(this.edited && this.emailIsValid == 'valid' && this.firstNameIsValid == 'valid' && this.lastNameIsValid == 'valid') {
-        return true;
+    saveable: function () {
+      if (this.edited && this.emailIsValid == 'valid' && this.firstNameIsValid == 'valid' && this.lastNameIsValid == 'valid') {
+        return true
       }
-      return false;
+      return false
     },
     /**
      * Returns ZXCBN score for user's new password.
      */
-    newPasswordStrength: function() {
-      let val = this.new_password;
-      let result = zxcvbn(val);
-      return result.score;
+    newPasswordStrength: function () {
+      let val = this.new_password
+      let result = zxcvbn(val)
+      return result.score
     },
     /**
      * Checks if user's new password is changeable:
      * - Checks that there is a current password filled.
      * - Checks that the new password has a ZXCVBN score over 3
      */
-    passwordIsChangeable: function() {
-      if(this.current_password.length > 0 && this.newPasswordStrength >= 3) {
-        return true;
+    passwordIsChangeable: function () {
+      if (this.current_password.length > 0 && this.newPasswordStrength >= 3) {
+        return true
       }
-      return false;
+      return false
     }
   },
   watch: {
@@ -212,8 +212,8 @@ export default {
      * Sets the edited variable to true when User changes.
      */
     user: {
-      handler: function(new_user){
-        this.edited = true;
+      handler: function (new_user) {
+        this.edited = true
       },
       deep: true
     }
@@ -221,11 +221,11 @@ export default {
   methods: {
     /**
      * Toggles the edition area for a user attribute.
-     * Parameters: 
+     * Parameters:
      * - (String) editing_data : editing_fullname || editing_email
      */
-    toggleEditingMode: function(editing_data) {
-      this[editing_data] = !this[editing_data];
+    toggleEditingMode: function (editing_data) {
+      this[editing_data] = !this[editing_data]
     },
     /**
      * Saves the User
@@ -233,18 +233,18 @@ export default {
      * - Close all edition areas.
      * - Trigger a toast notification.
      */
-    saveUser: function() {
-      let app = this;
+    saveUser: function () {
+      let app = this
       app.$store.dispatch('updateUser', app.user)
-        .then(function(result) {
-          app.edited = false;
-          app.editing_fullname = false;
-          app.editing_email = false;
+        .then(function (result) {
+          app.edited = false
+          app.editing_fullname = false
+          app.editing_email = false
           app.$toasted.success('User Saved')
-          }, function(err) {
-            error.log(err);
-          }
-        );
+        }, function (err) {
+          error.log(err)
+        }
+        )
     },
     /**
      * Updates User Password
@@ -252,20 +252,20 @@ export default {
      * - Reinitialize inputs.
      * - Trigger a toast notification.
      */
-    changePassword: function() {
-      let app = this;
+    changePassword: function () {
+      let app = this
       app.$store.dispatch('updateUserPassword', app.user, app.new_password)
-        .then(function(result) {
-          app.current_password = '';
-          app.new_password = '';
-          setTimeout(function() {
-            $('input').focusout();
+        .then(function (result) {
+          app.current_password = ''
+          app.new_password = ''
+          setTimeout(function () {
+            $('input').focusout()
           })
           app.$toasted.success('Password Updated')
-        }, function(err) {
-          error.log(err);
+        }, function (err) {
+          error.log(err)
         }
-        );
+        )
     }
   }
 }
@@ -368,7 +368,7 @@ export default {
     .user-email {
       text-align: center;
       margin-top: 20px;
-      
+
       .editable-data {
         .data {
           opacity: .6;
@@ -408,4 +408,3 @@ export default {
   }
 }
 </style>
-

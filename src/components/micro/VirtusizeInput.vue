@@ -19,17 +19,17 @@ Properties:
 
     <label :for="uniqueId">{{label}}</label>
 
-    <div class="toggle-password-visibility" 
-      v-if="type == 'password' && passwordVisibility" 
+    <div class="toggle-password-visibility"
+      v-if="type == 'password' && passwordVisibility"
       v-on:click="togglePasswordVisibility($event)">
       <font-awesome-icon icon="eye" class="show-password-icon"></font-awesome-icon>
       <font-awesome-icon icon="eye-slash" class="hide-password-icon" style="display: none"></font-awesome-icon>
       <span>Show</span>
     </div>
 
-    <input :id="uniqueId" 
-      :type="type" 
-      :value="value" 
+    <input :id="uniqueId"
+      :type="type"
+      :value="value"
       v-on:keyup="updateInputVal($event.target.value)">
 
     <PasswordStrengthMeter v-if="passwordStrength" :strength="strength"/>
@@ -41,7 +41,7 @@ Properties:
 import PasswordStrengthMeter from '@/components/micro/PasswordStrengthMeter.vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-let zxcvbn = require('zxcvbn');
+let zxcvbn = require('zxcvbn')
 
 export default {
   props: {
@@ -63,7 +63,7 @@ export default {
     },
     inline: {
       type: Boolean,
-      default: false,
+      default: false
     },
     focused: {
       type: Boolean,
@@ -90,7 +90,7 @@ export default {
     PasswordStrengthMeter,
     FontAwesomeIcon
   },
-  data: function() {
+  data: function () {
     return {
       uniqueId: this.makeid(),
       input_val: ''
@@ -100,80 +100,79 @@ export default {
     /**
      * Returns a list of classes depending on the different properties passed.
      */
-    groupClasses: function() {
-      let app = this;
-      let classes = '';
-      if(app.focused) {
-        classes += 'focused ';
+    groupClasses: function () {
+      let app = this
+      let classes = ''
+      if (app.focused) {
+        classes += 'focused '
       }
-      if(app.inline) {
-        classes += 'inline ';
+      if (app.inline) {
+        classes += 'inline '
       }
-      if(app.size) {
-        classes += app.size + ' ';
+      if (app.size) {
+        classes += app.size + ' '
       }
-      if(app.validity != 'neither-valid-nor-invalid') {
-        classes += app.validity + ' ';
+      if (app.validity != 'neither-valid-nor-invalid') {
+        classes += app.validity + ' '
       }
-      return classes;
+      return classes
     }
   },
   methods: {
     /**
      * Emit the input's value so that parent component can use v-model
      */
-    updateInputVal: function(value) {
-      this.$emit('input', value);
+    updateInputVal: function (value) {
+      this.$emit('input', value)
     },
     /**
      * Generate a unique ID
      */
-    makeid: function() {
-      var text = "";
-      var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    makeid: function () {
+      var text = ''
+      var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 
-      for (var i = 0; i < 5; i++)
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
+      for (var i = 0; i < 5; i++) { text += possible.charAt(Math.floor(Math.random() * possible.length)) }
 
-      return text;
+      return text
     },
     /**
      * Toggles between password visible mode and password invisible mode
      */
-    togglePasswordVisibility: function(e) {
-      let app = this;
-      $('#'+app.uniqueId).focus();
-      let current_type = $('#'+app.uniqueId).attr('type');
-      if(current_type == 'password') {
-        $('#'+app.uniqueId).attr('type', 'text');
-        $('#'+app.uniqueId).parent('.virtusize-input-group').find('.show-password-icon').hide();
-        $('#'+app.uniqueId).parent('.virtusize-input-group').find('.hide-password-icon').show();
-        $('#'+app.uniqueId).parent('.virtusize-input-group').find('.toggle-password-visibility span').html('Hide');
+    togglePasswordVisibility: function (e) {
+      let app = this
+      $('#' + app.uniqueId).focus()
+      let current_type = $('#' + app.uniqueId).attr('type')
+      if (current_type == 'password') {
+        $('#' + app.uniqueId).attr('type', 'text')
+        $('#' + app.uniqueId).parent('.virtusize-input-group').find('.show-password-icon').hide()
+        $('#' + app.uniqueId).parent('.virtusize-input-group').find('.hide-password-icon').show()
+        $('#' + app.uniqueId).parent('.virtusize-input-group').find('.toggle-password-visibility span').html('Hide')
       }
-      if(current_type == 'text') {
-        $('#'+app.uniqueId).attr('type', 'password');
-        $('#'+app.uniqueId).parent('.virtusize-input-group').find('.show-password-icon').show();
-        $('#'+app.uniqueId).parent('.virtusize-input-group').find('.hide-password-icon').hide();
-        $('#'+app.uniqueId).parent('.virtusize-input-group').find('.toggle-password-visibility span').html('Show');
+      if (current_type == 'text') {
+        $('#' + app.uniqueId).attr('type', 'password')
+        $('#' + app.uniqueId).parent('.virtusize-input-group').find('.show-password-icon').show()
+        $('#' + app.uniqueId).parent('.virtusize-input-group').find('.hide-password-icon').hide()
+        $('#' + app.uniqueId).parent('.virtusize-input-group').find('.toggle-password-visibility span').html('Show')
       }
     }
   },
-  mounted: function() {
-    let app = this;
+  mounted: function () {
+    let app = this
 
     /**
      * Handles the focused state, input is focused if:
      * - input is focused.
      * - input is not focused but has a non-null value.
      */
-    $('#'+app.uniqueId).on('focus', function() {
-      $(this).parent('.virtusize-input-group').addClass('focused');
-    });
-    $('#'+app.uniqueId).on('focusout', function() {
-      if($(this).val().length == 0) {
-        $(this).parent('.virtusize-input-group').removeClass('focused');
+    $('#' + app.uniqueId).on('focus', function () {
+      $(this).parent('.virtusize-input-group').addClass('focused')
+    })
+    $('#' + app.uniqueId).on('focusout', function () {
+      if ($(this).val().length == 0) {
+        $(this).parent('.virtusize-input-group').removeClass('focused')
       }
-    });
+    })
   }
 }
 </script>

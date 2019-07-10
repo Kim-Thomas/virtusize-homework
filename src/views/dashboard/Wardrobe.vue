@@ -10,8 +10,8 @@ import Monitor from '@/assets/images/monitor.svg'
 
 export default {
   computed: {
-    Monitor: function() {
-      return Monitor;
+    Monitor: function () {
+      return Monitor
     }
   }
 }
@@ -40,4 +40,3 @@ export default {
   }
 }
 </style>
-

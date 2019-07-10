@@ -6,23 +6,22 @@
 </template>
 
 <script>
-import PageLoader from '@/components/macro/PageLoader.vue';
+import PageLoader from '@/components/macro/PageLoader.vue'
 
 export default {
   name: 'app',
   components: {
     PageLoader
   },
-  mounted: function() {
-    let app = this;
+  mounted: function () {
+    let app = this
 
-    setTimeout(function() {
-      app.$root.$emit('pageIsLoaded');
-    }, 3500);
+    setTimeout(function () {
+      app.$root.$emit('pageIsLoaded')
+    }, 3500)
   }
 }
 </script>
-
 
 <style lang="less">
 html, body {

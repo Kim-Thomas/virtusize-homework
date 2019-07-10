@@ -10,19 +10,19 @@
 </template>
 
 <script>
-import DashboardSidebar from '@/components/macro/DashboardSidebar.vue';
+import DashboardSidebar from '@/components/macro/DashboardSidebar.vue'
 
 export default {
   components: {
     DashboardSidebar
   },
-  created: function() {
-    let app = this;
+  created: function () {
+    let app = this
     // Let's check if the user is really loged, if not, redirect to homepage.
-    if(!app.$store.state.user.user._id) {
+    if (!app.$store.state.user.user._id) {
       app.$router.push({ path: '/' })
     }
-  } 
+  }
 }
 </script>
 

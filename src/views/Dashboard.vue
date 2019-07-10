@@ -2,9 +2,9 @@
   <div class="dashboard">
 
     <DashboardSidebar />
-    <div class="dashboard-content">
+    <main class="dashboard-content">
       <router-view></router-view>
-    </div>
+    </main>
 
   </div>
 </template>

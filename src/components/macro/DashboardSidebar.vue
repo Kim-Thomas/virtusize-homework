@@ -1,41 +1,43 @@
 <template>
-  <div class="dashboard-sidebar">
+  <aside class="dashboard-sidebar">
 
-    <div class="site-branding">
+    <header class="site-branding">
       <img class="site-branding__logo" alt="Virtusize Logo" :src="LogoWithText">
       <img class="site-branding__logo--mini" alt="Virtusize Logo" :src="LogoWithoutText">
-    </div>
+    </header>
 
-    <div class="content">
+    <section class="content">
       <h3 class="sidebar-title">Dashboard</h3>
-      <ul>
-        <li>
-          <router-link to="/dashboard/account-details">
-            <font-awesome-icon icon="user-secret" /> <span>Account Details</span>
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/dashboard/my-wardrobe">
-            <font-awesome-icon icon="socks" /> <span>My Wardrobe</span>
-          </router-link>
-        </li>
-      </ul>
-      <h3 class="sidebar-title">Others</h3>
-      <ul>
-        <li>
-          <router-link to="/dashboard/about">
-            <font-awesome-icon icon="question-circle" /> <span>About</span>
-          </router-link>
-        </li>
-        <li>
-          <a href="" class='log-out-link' v-on:click.prevent="logOut()">
-            <font-awesome-icon icon="sign-out-alt" /> <span>Log Out</span>
-          </a>
-        </li>
-      </ul>
-    </div>
+      <nav>
+        <ul>
+          <li>
+            <router-link to="/dashboard/account-details">
+              <font-awesome-icon icon="user-secret" /> <span>Account Details</span>
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/dashboard/my-wardrobe">
+              <font-awesome-icon icon="socks" /> <span>My Wardrobe</span>
+            </router-link>
+          </li>
+        </ul>
+        <h3 class="sidebar-title">Others</h3>
+        <ul>
+          <li>
+            <router-link to="/dashboard/about">
+              <font-awesome-icon icon="question-circle" /> <span>About</span>
+            </router-link>
+          </li>
+          <li>
+            <a href="" class='log-out-link' v-on:click.prevent="logOut()">
+              <font-awesome-icon icon="sign-out-alt" /> <span>Log Out</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </section>
 
-  </div>
+  </aside>
 </template>
 
 <script>

@@ -14,14 +14,14 @@
       </p>
     </div>
 
-    <div class="slider-nav">
+    <nav class="slider-nav">
       <div class="slider-nav__dot"
         v-for="(feature,index) in features"
         :key="index"
         v-bind:class="{ active: isActive(index) }"
         v-on:click="goToSlide(index)">
       </div>
-    </div>
+    </nav>
 
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <div class="about-page">
-    <div class="container">
+    <section class="container">
       <h1>About this Homework</h1>
 
       <p>
@@ -45,7 +45,7 @@
       <p>
         This has been tested on different devices ( phone, tablet and laptop ) and different browsers ( IE11, Edge, Chrome, Firefox ).
       </p>
-    </div>
+    </section>
   </div>
 </template>
 

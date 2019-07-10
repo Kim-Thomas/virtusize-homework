@@ -2,21 +2,21 @@
   <div class="account-details">
 
     <!-- Account Hero -->
-    <div class="account-hero">
+    <header class="account-hero">
       <div class="save-user-btn-container" v-if="saveable">
         <VirtusizeBtn btn-class="btn btn--big"
           label="Save Modifications"
           v-on:click.native="saveUser()"/>
       </div>
       <UserPortrait :email="user.email"/>
-    </div>
+    </header>
     <!-- !Account Hero -->
 
     <!-- Main Container -->
-    <div class="container">
+    <section class="container">
 
       <!-- User Fullname Section -->
-      <div class="user-fullname">
+      <section class="user-fullname">
 
         <div class="editable-data">
           <div class="data">
@@ -26,7 +26,7 @@
           <font-awesome-icon icon="pen" v-on:click="toggleEditingMode('editing_fullname')"/>
         </div>
 
-        <div class="edition-area" v-if="editing_fullname">
+        <form class="edition-area" v-if="editing_fullname">
           <VirtusizeInput label="First Name"
             size="medium" v-model="user.first_name"
             :inline="true"
@@ -38,13 +38,13 @@
             :inline="true"
             :focused="true"
             :validity="lastNameIsValid"/>
-        </div>
+        </form>
 
-      </div>
+      </section>
       <!-- !User Fullname Section -->
 
       <!-- User Email Section -->
-      <div class="user-email">
+      <section class="user-email">
 
         <div class="editable-data">
           <div class="data">
@@ -54,15 +54,15 @@
           <font-awesome-icon icon="pen" v-on:click="toggleEditingMode('editing_email')"/>
         </div>
 
-        <div class="edition-area" v-if="editing_email">
+        <form class="edition-area" v-if="editing_email">
           <VirtusizeInput label="Email Address"
             size="medium"
             v-model="user.email"
             :focused="true"
             :validity="emailIsValid"/>
-        </div>
+        </form>
 
-      </div>
+      </section>
       <!-- !User Email Section -->
 
       <!-- Section Title -->
@@ -75,7 +75,7 @@
       <!-- !Section Title -->
 
       <!-- Change Password Section -->
-      <div class="change-password-container">
+      <section class="change-password-container">
 
         <form class="edition-area">
           <VirtusizeInput label="Current Password"
@@ -100,10 +100,10 @@
           v-on:click.native="changePassword()"
           v-if="passwordIsChangeable"/>
 
-      </div>
+      </section>
       <!-- !Change Password Section -->
 
-    </div>
+    </section>
     <!-- !Main Container -->
 
   </div>

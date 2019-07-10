@@ -1,9 +1,9 @@
 <template>
-  <div class="sidebar">
+  <aside class="sidebar">
 
-    <div class="site-branding">
+    <header class="site-branding">
       <img class="site-branding__logo" alt="Virtusize Logo" :src="LogoWithText">
-    </div>
+    </header>
 
     <div class="sidebar-content">
 
@@ -63,11 +63,11 @@
 
     </div>
 
-    <div class="site-copyright">
+    <footer class="site-copyright">
       Just a homework by Thomas Kim for Virtusize.
-    </div>
+    </footer>
 
-  </div>
+  </aside>
 </template>
 
 <script>

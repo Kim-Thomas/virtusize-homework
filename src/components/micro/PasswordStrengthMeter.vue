@@ -32,19 +32,14 @@ export default {
       switch (this.strength) {
         case 0:
           return 'Very weak'
-          break
         case 1:
           return 'Weak'
-          break
         case 2:
           return 'Insufficient'
-          break
         case 3:
           return 'Good'
-          break
         case 4:
           return 'Strong'
-          break
       }
     }
   },

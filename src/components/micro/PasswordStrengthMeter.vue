@@ -40,6 +40,8 @@ export default {
           return 'Good'
         case 4:
           return 'Strong'
+        default:
+          return 'Undefined'
       }
     }
   },

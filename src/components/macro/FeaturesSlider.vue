@@ -28,10 +28,10 @@
 
 <script>
 import HavingFun from '@/assets/images/having-fun.svg'
-import Shopping from '@/assets/images/shopping.svg'
+// import Shopping from '@/assets/images/shopping.svg'
 import OnlineShopping from '@/assets/images/online-shopping.svg'
 import Booking from '@/assets/images/booking.svg'
-import EverywhereTogether from '@/assets/images/everywhere-together.svg'
+// import EverywhereTogether from '@/assets/images/everywhere-together.svg'
 
 let swipe = require('jquery-touchswipe')
 
@@ -67,7 +67,7 @@ export default {
      */
     isActive: function (index) {
       let is_active
-      index == this.active_item ? is_active = true : is_active = false
+      index === this.active_item ? is_active = true : is_active = false
       return is_active
     },
     /**
@@ -107,10 +107,10 @@ export default {
     // Note: Swipe gesture support.
     $('.features-slider').swipe({
       swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
-        if (direction == 'left') {
+        if (direction === 'left') {
           app.goToNextSlide()
         }
-        if (direction == 'right') {
+        if (direction === 'right') {
           app.goToPrevSlide()
         }
       },

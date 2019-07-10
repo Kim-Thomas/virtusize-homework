@@ -33,8 +33,6 @@ import OnlineShopping from '@/assets/images/online-shopping.svg'
 import Booking from '@/assets/images/booking.svg'
 // import EverywhereTogether from '@/assets/images/everywhere-together.svg'
 
-let swipe = require('jquery-touchswipe')
-
 export default {
   data: function () {
     return {
@@ -103,6 +101,8 @@ export default {
   },
   mounted: function () {
     let app = this
+
+    require('jquery-touchswipe')
 
     // Note: Swipe gesture support.
     $('.features-slider').swipe({

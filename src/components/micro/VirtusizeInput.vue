@@ -20,7 +20,7 @@ Properties:
     <label :for="uniqueId">{{label}}</label>
 
     <div class="toggle-password-visibility"
-      v-if="type == 'password' && passwordVisibility"
+      v-if="type === 'password' && passwordVisibility"
       v-on:click="togglePasswordVisibility($event)">
       <font-awesome-icon icon="eye" class="show-password-icon"></font-awesome-icon>
       <font-awesome-icon icon="eye-slash" class="hide-password-icon" style="display: none"></font-awesome-icon>
@@ -112,7 +112,7 @@ export default {
       if (app.size) {
         classes += app.size + ' '
       }
-      if (app.validity != 'neither-valid-nor-invalid') {
+      if (app.validity !== 'neither-valid-nor-invalid') {
         classes += app.validity + ' '
       }
       return classes
@@ -143,13 +143,13 @@ export default {
       let app = this
       $('#' + app.uniqueId).focus()
       let current_type = $('#' + app.uniqueId).attr('type')
-      if (current_type == 'password') {
+      if (current_type === 'password') {
         $('#' + app.uniqueId).attr('type', 'text')
         $('#' + app.uniqueId).parent('.virtusize-input-group').find('.show-password-icon').hide()
         $('#' + app.uniqueId).parent('.virtusize-input-group').find('.hide-password-icon').show()
         $('#' + app.uniqueId).parent('.virtusize-input-group').find('.toggle-password-visibility span').html('Hide')
       }
-      if (current_type == 'text') {
+      if (current_type === 'text') {
         $('#' + app.uniqueId).attr('type', 'password')
         $('#' + app.uniqueId).parent('.virtusize-input-group').find('.show-password-icon').show()
         $('#' + app.uniqueId).parent('.virtusize-input-group').find('.hide-password-icon').hide()
@@ -169,7 +169,7 @@ export default {
       $(this).parent('.virtusize-input-group').addClass('focused')
     })
     $('#' + app.uniqueId).on('focusout', function () {
-      if ($(this).val().length == 0) {
+      if ($(this).val().length === 0) {
         $(this).parent('.virtusize-input-group').removeClass('focused')
       }
     })

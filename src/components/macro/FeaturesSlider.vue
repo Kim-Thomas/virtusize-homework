@@ -30,7 +30,8 @@
 import HavingFun from '@/assets/images/having-fun.svg'
 // import Shopping from '@/assets/images/shopping.svg'
 import OnlineShopping from '@/assets/images/online-shopping.svg'
-import Booking from '@/assets/images/booking.svg'
+import Deliveries from '@/assets/images/deliveries.svg'
+// import Booking from '@/assets/images/booking.svg'
 // import EverywhereTogether from '@/assets/images/everywhere-together.svg'
 
 export default {
@@ -45,7 +46,7 @@ export default {
           description: 'By removing the uncertainty around size and fit, Virtusize increases average order values by 20%.'
         },
         {
-          illustration: Booking,
+          illustration: Deliveries,
           title: '30% Decreased Return Rates',
           description: 'By removing the uncertainty around size and fit, Virtusize increases average order values by 20%.'
         },

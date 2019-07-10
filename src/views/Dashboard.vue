@@ -47,6 +47,7 @@ export default {
 
   .dashboard-content {
     -ms-grid-column: 2;
+    grid-column: 2;
   }
 }
 </style>

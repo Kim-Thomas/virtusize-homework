@@ -18,6 +18,7 @@
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
     "jquery-touchswipe": "^1.6.19",
+    "lodash.clonedeep": "^4.5.0",
     "md5": "^2.2.1",
     "vue": "^2.6.10",
     "vue-router": "^3.0.7",

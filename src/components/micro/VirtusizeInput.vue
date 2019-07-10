@@ -102,8 +102,7 @@ export default {
     groupClasses: function () {
       let app = this
       let classes = ''
-      if (app.focused || 
-        $('#' + app.uniqueId).parent('.virtusize-input-group').hasClass('focused')) {
+      if (app.focused || $('#' + app.uniqueId).parent('.virtusize-input-group').hasClass('focused')) {
         classes += 'focused '
       }
       if (app.inline) {

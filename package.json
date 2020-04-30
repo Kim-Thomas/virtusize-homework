@@ -17,7 +17,7 @@
     "babel-polyfill": "^6.26.0",
     "core-js": "^2.6.5",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jquery-touchswipe": "^1.6.19",
     "lodash.clonedeep": "^4.5.0",
     "lodash.debounce": "^4.0.8",
